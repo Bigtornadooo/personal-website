@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-891a3211-4f1f-48ee-a4e6-f60c71bd7a51/styles.css">
+<script src="_ds/modernist-891a3211-4f1f-48ee-a4e6-f60c71bd7a51/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a:hover { color: var(--color-accent-700); }
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  [data-reveal].in { opacity: 1; transform: none; }
+  @keyframes slideUp { from { transform: translateY(105%); } to { transform: translateY(0); } }
+  @keyframes ruleIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .proj:hover .projnum { background: var(--color-accent); color: var(--color-bg); }
+</style>
+</helmet>
+<div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+
+  <nav class="nav" style="position:sticky;top:0;z-index:20;background:var(--color-bg)">
+    <span class="nav-brand"><a href="Home.dc.html" style="color:inherit;text-decoration:none">TAN DA FENG</a></span>
+    <div style="display:flex;gap:var(--space-6);align-items:center">
+      <a href="Home.dc.html">Index</a>
+      <a href="Work.dc.html" aria-current="page">Work</a>
+      <a href="CV.dc.html">CV</a>
+      <a href="mailto:dafeng@u.nus.edu" class="btn btn-primary" style="text-decoration:none">Email me</a>
+    </div>
+  </nav>
+
+  <header style="max-width:1400px;margin:0 auto;padding:var(--space-8)">
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-4);align-items:end">
+      <div style="grid-column:1 / span 7;overflow:hidden">
+        <h1 style="font-size:clamp(44px,7vw,104px);line-height:.94;letter-spacing:-.03em;margin:0 0 -.16em;padding-bottom:.16em;animation:slideUp .85s cubic-bezier(.2,.75,.15,1) both">Work</h1>
+      </div>
+      <p style="grid-column:8 / span 5;margin:0 0 var(--space-2);font-size:16px;max-width:40ch">Six projects, mostly coursework and internships. Each one shipped, each one has a number I'd defend and at least one thing I'd redo.</p>
+    </div>
+    <div style="height:2px;background:var(--color-accent);margin-top:var(--space-8);transform-origin:left;animation:ruleIn 1s .2s cubic-bezier(.2,.75,.15,1) both"></div>
+  </header>
+
+  <section style="max-width:1400px;margin:0 auto;padding:0 var(--space-8) var(--space-8)">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="6">
+      <article class="proj" data-reveal style="display:grid;grid-template-columns:96px 1fr 320px;gap:var(--space-6);padding:var(--space-8) 0;border-bottom:1px solid var(--color-divider)">
+        <div class="projnum" style="font-family:var(--font-heading);font-weight:800;font-size:15px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;border:2px solid var(--color-divider);transition:background .3s,color .3s">{{ p.idx }}</div>
+        <div>
+          <div class="card-kicker" style="margin-bottom:var(--space-2)">{{ p.kicker }}</div>
+          <h3 style="font-size:clamp(22px,2.6vw,34px);margin:0 0 var(--space-3);max-width:26ch">{{ p.title }}</h3>
+          <p style="font-size:16px;max-width:56ch;margin:0 0 var(--space-4)">{{ p.body }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2)">
+            <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="3">
+              <span class="tag tag-outline">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <sc-for list="{{ p.facts }}" as="f" hint-placeholder-count="2">
+              <div style="border-top:1px solid var(--color-divider);padding-top:var(--space-2)">
+                <div style="font-family:var(--font-heading);font-weight:800;font-size:26px;line-height:1">{{ f.v }}</div>
+                <div class="text-muted" style="font-size:11px;letter-spacing:.08em;text-transform:uppercase">{{ f.k }}</div>
+              </div>
+            </sc-for>
+            <div class="text-muted" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid var(--color-divider);padding-top:var(--space-2)">{{ p.year }} · {{ p.role }}</div>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+
+  <section style="background:var(--color-accent);color:var(--color-bg)">
+    <div style="max-width:1400px;margin:0 auto;padding:calc(var(--space-8) * 2) var(--space-8);display:flex;flex-wrap:wrap;gap:var(--space-8);align-items:end;justify-content:space-between">
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4.4vw,62px);line-height:1.04;letter-spacing:-.025em;max-width:20ch;margin:0">Want the code, the notebooks, or the parts that failed?</p>
+      <a href="mailto:dafeng@u.nus.edu" class="btn" style="background:var(--color-bg);color:var(--color-accent);font-size:16px;padding:var(--space-3) var(--space-6)">Ask me →</a>
+    </div>
+  </section>
+
+  <footer style="border-top:2px solid var(--color-divider);padding:var(--space-4) var(--space-8)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px" class="text-muted">
+      <span>© 2026 Tan Da Feng</span>
+      <a href="CV.dc.html" style="color:inherit">CV →</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      projects: [
+        { idx: "01", kicker: "Honours thesis", title: "Credit-spread signal engine", body: "Gradient-boosted forecasts of SGD corporate spreads across 12 years of issuance, with a walk-forward harness that refuses to flatter itself. Feature set kept deliberately small: rates, issuer leverage, and a liquidity proxy.", tags: ["XGBoost", "Walk-forward CV", "Fixed income"], facts: [{ v: "+0.14", k: "Sharpe vs. benchmark" }, { v: "12 yrs", k: "Sample" }], year: "2026", role: "Solo" },
+        { idx: "02", kicker: "Internship", title: "Churn model for a neobank", body: "Survival analysis on 380k accounts. The model said the retention campaign was mostly paying people who were never going to leave; the deck said it more politely.", tags: ["Cox PH", "SQL", "Causal sanity checks"], facts: [{ v: "380k", k: "Accounts" }, { v: "S$1.2m", k: "Spend reallocated" }], year: "2025", role: "Data intern" },
+        { idx: "03", kicker: "Research", title: "Earnings-call sentiment index", body: "NLP over 4,000 SGX and ASEAN transcripts, scoring management hedging rather than headline tone. Modest alpha, honestly reported, and a very long appendix on preprocessing.", tags: ["Transformers", "Text mining", "Backtesting"], facts: [{ v: "4,012", k: "Transcripts" }, { v: "0.31", k: "IC, 1-month" }], year: "2025", role: "Two-person team" },
+        { idx: "04", kicker: "Teaching tool", title: "SGX liquidity dashboard", body: "A Streamlit app that turns intraday depth data into something a tutorial group can read in ten seconds. Adopted by a 200-student module and, alarmingly, still maintained by me.", tags: ["Streamlit", "Pandas", "Viz"], facts: [{ v: "200+", k: "Weekly users" }, { v: "8 mo", k: "In production" }], year: "2024", role: "Solo" },
+        { idx: "05", kicker: "Competition", title: "Insurance claims triage", body: "Datathon entry: a two-stage classifier that routes claims by expected handling cost instead of severity. Placed third, mainly on the cost matrix nobody else bothered with.", tags: ["LightGBM", "Cost-sensitive"], facts: [{ v: "3rd / 96", k: "Placing" }, { v: "36 hrs", k: "Build time" }], year: "2024", role: "Team of four" },
+        { idx: "06", kicker: "Coursework", title: "Portfolio optimiser, with regret", body: "Mean-variance against Black-Litterman on ten years of ASEAN equities, plus a section on how badly both do when the covariance matrix is estimated from noise.", tags: ["Black-Litterman", "R", "Monte Carlo"], facts: [{ v: "10 yrs", k: "Backtest" }, { v: "5,000", k: "Simulations" }], year: "2023", role: "Solo" }
+      ]
+    };
+  }
+  componentDidMount() {
+    this.io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); this.io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach(el => this.io.observe(el));
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+}
+</script>
+</body>
+</html>

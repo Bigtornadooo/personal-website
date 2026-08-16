@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-891a3211-4f1f-48ee-a4e6-f60c71bd7a51/styles.css">
+<script src="_ds/modernist-891a3211-4f1f-48ee-a4e6-f60c71bd7a51/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; }
+  a:hover { color: var(--color-accent-700); }
+  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  [data-reveal].in { opacity: 1; transform: none; }
+  @keyframes slideUp { from { transform: translateY(105%); } to { transform: translateY(0); } }
+  @keyframes ruleIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+</style>
+</helmet>
+<div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+
+  <nav class="nav" style="position:sticky;top:0;z-index:20;background:var(--color-bg)">
+    <span class="nav-brand"><a href="Home.dc.html" style="color:inherit;text-decoration:none">TAN DA FENG</a></span>
+    <div style="display:flex;gap:var(--space-6);align-items:center">
+      <a href="Home.dc.html">Index</a>
+      <a href="Work.dc.html">Work</a>
+      <a href="CV.dc.html" aria-current="page">CV</a>
+      <a href="mailto:dafeng@u.nus.edu" class="btn btn-primary" style="text-decoration:none">Email me</a>
+    </div>
+  </nav>
+
+  <header style="max-width:1400px;margin:0 auto;padding:var(--space-8)">
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-4);align-items:end">
+      <div style="grid-column:1 / span 7;overflow:hidden">
+        <h1 style="font-size:clamp(44px,7vw,104px);line-height:.94;letter-spacing:-.03em;margin:0 0 -.16em;padding-bottom:.16em;animation:slideUp .85s cubic-bezier(.2,.75,.15,1) both">Curriculum<br>vitae</h1>
+      </div>
+      <div style="grid-column:8 / span 5;padding-bottom:var(--space-2)">
+        <p style="margin:0 0 var(--space-3);font-size:16px;max-width:38ch">Business Analytics, National University of Singapore. Two specialisations, three internships, one recurring interest in models that survive contact with real data.</p>
+        <a href="#" class="btn btn-secondary" style="font-size:14px">Download PDF</a>
+      </div>
+    </div>
+    <div style="height:2px;background:var(--color-accent);margin-top:var(--space-8);transform-origin:left;animation:ruleIn 1s .2s cubic-bezier(.2,.75,.15,1) both"></div>
+  </header>
+
+  <section style="max-width:1400px;margin:0 auto;padding:var(--space-8)">
+    <h6 style="margin-bottom:var(--space-6)">Experience</h6>
+    <sc-for list="{{ roles }}" as="r" hint-placeholder-count="4">
+      <div data-reveal style="display:grid;grid-template-columns:180px 1fr 1fr;gap:var(--space-6);padding:var(--space-6) 0;border-top:1px solid var(--color-divider)">
+        <div class="text-muted" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase">{{ r.when }}</div>
+        <div>
+          <h4 style="margin:0 0 var(--space-1)">{{ r.title }}</h4>
+          <div class="text-muted" style="font-size:14px">{{ r.org }}</div>
+        </div>
+        <p style="margin:0;font-size:15px;max-width:52ch">{{ r.body }}</p>
+      </div>
+    </sc-for>
+    <div style="height:2px;background:var(--color-divider)"></div>
+  </section>
+
+  <section style="max-width:1400px;margin:0 auto;padding:0 var(--space-8) var(--space-8)">
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-8)">
+      <div style="grid-column:1 / span 5">
+        <h6 style="margin-bottom:var(--space-4)">Education</h6>
+        <h4 style="margin:0 0 var(--space-1)">BSc Business Analytics (Hons)</h4>
+        <div class="text-muted" style="font-size:14px;margin-bottom:var(--space-3)">National University of Singapore · 2022–2026</div>
+        <p style="font-size:15px;max-width:40ch">Specialisations in Financial Analytics and Machine Learning. Dean's List, AY24/25. Teaching assistant for Programming Methodology.</p>
+      </div>
+      <div style="grid-column:7 / span 6">
+        <h6 style="margin-bottom:var(--space-4)">Toolkit</h6>
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:var(--space-4);padding:var(--space-3) 0;border-top:1px solid var(--color-divider)">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:14px">{{ s.k }}</div>
+            <div style="font-size:14px">{{ s.v }}</div>
+          </div>
+        </sc-for>
+        <div style="height:1px;background:var(--color-divider)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-accent);color:var(--color-bg)">
+    <div style="max-width:1400px;margin:0 auto;padding:calc(var(--space-8) * 2) var(--space-8)">
+      <h6 style="margin-bottom:var(--space-4);opacity:.75">Open to</h6>
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4.4vw,64px);line-height:1.04;letter-spacing:-.025em;max-width:21ch;margin:0 0 var(--space-6)">Graduate roles in quant research, data science, or anything with a feedback loop.</p>
+      <a href="mailto:dafeng@u.nus.edu" class="btn" style="background:var(--color-bg);color:var(--color-accent);font-size:16px;padding:var(--space-3) var(--space-6)">dafeng@u.nus.edu →</a>
+    </div>
+  </section>
+
+  <footer style="border-top:2px solid var(--color-divider);padding:var(--space-4) var(--space-8)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px" class="text-muted">
+      <span>© 2026 Tan Da Feng</span>
+      <a href="Work.dc.html" style="color:inherit">Work →</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      roles: [
+        { when: "May – Aug 2025", title: "Data Science Intern", org: "Neobank, Singapore", body: "Built the churn survival model behind the retention review; rewrote the feature pipeline so it ran in minutes rather than overnight." },
+        { when: "Jan – Apr 2025", title: "Quantitative Research Intern", org: "Asset manager, ASEAN equities", body: "Prototyped the earnings-call sentiment index and stress-tested two existing factor signals nobody had re-fit since 2021." },
+        { when: "May – Aug 2024", title: "Analytics Intern", org: "Insurance group", body: "Claims triage prototype and a much less glamorous month spent reconciling three definitions of 'active policy'." },
+        { when: "2023 – 2026", title: "Teaching Assistant", org: "NUS School of Computing", body: "Weekly Python tutorials for 40 students; wrote the debugging guide the module still hands out." }
+      ],
+      skills: [
+        { k: "Modelling", v: "XGBoost / LightGBM, survival analysis, Bayesian regression, factor models" },
+        { k: "Languages", v: "Python, SQL, R, a defensible amount of VBA" },
+        { k: "Finance", v: "Fixed income, portfolio construction, equity research, valuation" },
+        { k: "Tools", v: "Streamlit, dbt, Tableau, Git, LaTeX" }
+      ]
+    };
+  }
+  componentDidMount() {
+    this.io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); this.io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll("[data-reveal]").forEach(el => this.io.observe(el));
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+}
+</script>
+</body>
+</html>
