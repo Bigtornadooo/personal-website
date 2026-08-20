@@ -385,3 +385,141 @@ h1.display--sm { font-size: clamp(38px, 7vw, 104px); line-height: .94; }
   h1.display, .rule-accent { animation: none; }
   .workrow:hover .worktitle { transform: none; }
 }
+
+/* ── Introduction: portrait + opening statement ───────────────────────
+   Sits directly under the hero rule, so the photograph is the first
+   image on the page. Portrait rail left, prose right, same 12-col
+   measure as .hero-grid so the columns line up down the page.
+   ─────────────────────────────────────────────────────────────────── */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.intro-portrait { grid-column: 1 / span 4; }
+.intro-body { grid-column: 6 / span 7; }
+
+.portrait-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 22%;   /* keeps the face off the crop line */
+  border-bottom: 2px solid var(--color-accent);
+}
+.intro-body h6 { margin-bottom: var(--space-4); }
+.intro-lead {
+  font-size: clamp(18px, 1.9vw, 23px);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  max-width: 40ch;
+  margin-bottom: var(--space-4);
+}
+.intro-body p { max-width: 66ch; }
+
+/* — section head note (right-hand label, non-link variant) — */
+.section-note {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Creed: the two athletes ──────────────────────────────────────── */
+.creed-thesis {
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.45;
+  max-width: 62ch;
+  margin-bottom: var(--space-8);
+}
+.creed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+.creed {
+  border-top: 2px solid var(--color-divider);
+  padding-top: var(--space-6);
+}
+.creed-role { margin-bottom: var(--space-3); }
+.creed-name {
+  font-size: clamp(21px, 2.3vw, 31px);
+  margin: 0 0 var(--space-4);
+  max-width: 20ch;
+}
+.creed p { max-width: 56ch; }
+.creed-quote {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.32;
+  margin: var(--space-6) 0 var(--space-2);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-accent);
+  max-width: 34ch;
+}
+.creed-cite {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+/* ── Favourite film ───────────────────────────────────────────────── */
+.film {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;  /* 250px = poster's native width */
+  gap: var(--space-8);
+  align-items: start;
+  border-top: 2px solid var(--color-divider);
+  padding-top: var(--space-6);
+}
+.film-poster img {
+  width: 100%;
+  height: auto;
+  box-shadow: var(--shadow-md);
+}
+.film-lead {
+  font-size: clamp(21px, 2.4vw, 32px);
+  margin: 0 0 var(--space-4);
+  max-width: 24ch;
+}
+.film-body p { max-width: 62ch; }
+.film-body .tagrow { margin-top: var(--space-6); }
+.film-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .intro-portrait { grid-column: 1 / span 5; }
+  .intro-body { grid-column: 7 / span 6; }
+  .creed-grid { gap: var(--space-6); }
+  .film { grid-template-columns: 190px 1fr; gap: var(--space-6); }
+  .film-side { grid-column: 2; flex-direction: row; flex-wrap: wrap; gap: var(--space-6); }
+  .film-side > * { flex: 1 1 150px; }
+}
+
+@media (max-width: 760px) {
+  /* A repeat(12, 1fr) track pays for 11 gaps even when every child spans
+     1 / -1, and that gap total alone overflows a 320px viewport. Every
+     12-col grid on the page is single-column by this width anyway, so
+     collapse the template and drop the tax. */
+  .hero-grid, .record, .intro-grid, .cv-split { grid-template-columns: 1fr; }
+  .intro-grid { gap: var(--space-6); padding-top: var(--space-6); }
+  .intro-portrait, .intro-body { grid-column: 1 / -1; }
+  .intro-portrait { max-width: 320px; }
+  .creed-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .film { grid-template-columns: 1fr; }
+  .film-poster { max-width: 220px; }
+  .film-side { grid-column: 1; }
+  .section-note { white-space: normal; }
+}
