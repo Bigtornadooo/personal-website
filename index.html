@@ -1,251 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tan Da Feng · Business Analytics (Computing), NUS</title>
-<meta name="description" content="Tan Da Feng, year 2 Business Analytics (Computing) at NUS. Building AI and full-stack products. Open to summer 2027 internships.">
-<link rel="stylesheet" href="_ds/modernist-891a3211-4f1f-48ee-a4e6-f60c71bd7a51/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tan Da Feng. A record, kept in order.</title>
+<meta name="description" content="Tan Da Feng, Business Analytics (Computing) at NUS. Live-Sync, Day in a Life, and BCMS at Raffles Hall Developers, told as a running commit log.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FFFFFF'/><text x='16' y='22' font-family='monospace' font-size='16' fill='%230071E3' text-anchor='middle'>&gt;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="scrollcraft.css">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="page">
 
-  <nav class="nav">
-    <span class="nav-brand"><a href="index.html">TAN DA FENG</a></span>
-    <div class="nav-links">
-      <a href="index.html" aria-current="page">Index</a>
-      <a href="work.html">Work</a>
-      <a href="cv.html">CV</a>
-      <a href="mailto:dafengtan1444@gmail.com" class="btn btn-primary">Email me</a>
+<a class="skip-link" href="#top">Skip to content</a>
+<span data-sc-progress class="top-progress"></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<nav class="log-rail" aria-label="Career log, updates as you scroll">
+  <div class="log-rail__head"><b>career.log</b><br>append-only. updates as you read.</div>
+  <ol class="log-rail__list">
+    <li><a class="log-line" href="#hero-mark" data-target="hero-mark"><span class="hash"></span><span class="msg">init: Tan Da Feng, BAC (Computing) at NUS</span></a></li>
+    <li><a class="log-line" href="#livesync-mark" data-target="livesync-mark"><span class="hash"></span><span class="msg">commit: Live-Sync, lecture AI begins</span></a></li>
+    <li><a class="log-line" href="#stage-route" data-target="stage-route"><span class="hash"></span><span class="msg">commit: dynamic routing cuts inference cost 80%+</span></a></li>
+    <li><a class="log-line" href="#dayinalife" data-target="dayinalife"><span class="hash"></span><span class="msg">commit: Day in a Life, local-first PWA planner</span></a></li>
+    <li><a class="log-line" href="#studentconnect" data-target="studentconnect"><span class="hash"></span><span class="msg">commit: StudentConnect, Orbital Apollo 11 tier</span></a></li>
+    <li><a class="log-line" href="#agentforge" data-target="agentforge"><span class="hash"></span><span class="msg">commit: Agent Forge, Supabase + MongoDB backend</span></a></li>
+    <li><a class="log-line" href="#sia" data-target="sia"><span class="hash"></span><span class="msg">commit: SIA Engineering, report turnaround -80%</span></a></li>
+    <li><a class="log-line" href="#gdg" data-target="gdg"><span class="hash"></span><span class="msg">commit: NUS GDG, REST APIs + Postgres, Node.js</span></a></li>
+    <li><a class="log-line" href="#bcms" data-target="bcms"><span class="hash"></span><span class="msg">commit: BCMS ships, system of record for 44 events</span></a></li>
+    <li><a class="log-line" href="#teaching" data-target="teaching"><span class="hash"></span><span class="msg">commit: CS1010A teaching assistant, Java</span></a></li>
+    <li><a class="log-line" href="#toyomi" data-target="toyomi"><span class="hash"></span><span class="msg">commit: Toyomi, review pipeline near real-time</span></a></li>
+    <li><a class="log-line" href="#saf" data-target="saf"><span class="hash"></span><span class="msg">commit: SAF Armour, platoon of 30 (2023 to 2024)</span></a></li>
+    <li><a class="log-line" href="#interests-mark" data-target="interests-mark"><span class="hash"></span><span class="msg">commit: what he runs on, Ronaldo + Kobe</span></a></li>
+    <li><a class="log-line" href="#boyhood" data-target="boyhood"><span class="hash"></span><span class="msg">commit: favourite film, Boyhood (2014)</span></a></li>
+    <li><a class="log-line" href="#close" data-target="close"><span class="hash"></span><span class="msg">commit: open to summer 2027 internships</span></a></li>
+  </ol>
+  <div class="log-rail__foot">git log --oneline, live</div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO: his portrait fills the left panel edge to edge, full height, the
+       first thing on load. Explicit user override of the grammar's own "no
+       media above the fold" default; see BRIEF.md. -->
+  <section class="hero" data-sc-act="flow">
+    <figure class="hero-figure" data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
+      <div data-sc-parallax="0.4">
+        <img src="assets/portrait.jpg" width="1080" height="1430"
+             alt="Tan Da Feng at sunset, backpack on, leaning against a railing">
+      </div>
+    </figure>
+    <div class="hero-copy">
+      <p class="kicker" id="hero-mark">Business Analytics (Computing), NUS</p>
+      <h1 class="sc-display sc-display--xl" data-sc-cue="0 1 0 0" data-sc-kinetic="lines">Tan Da Feng</h1>
+      <p class="sub">First Class Honours, AY2025/26, specialising in <span class="accent-word">Machine Learning and Finance</span>. Graduating 2029. Builds things, then actually uses them.</p>
     </div>
-  </nav>
+  </section>
 
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-title">
-          <h1 class="display">Business<br>Analytics,<br>built full-stack.</h1>
-        </div>
-        <div class="hero-aside">
-          <h6>Currently</h6>
-          <p class="lede">Year 2 Business Analytics (Computing) at NUS, heading toward machine learning. Teaching CS1010A this semester; building at hackathons the rest of the time.</p>
-          <p class="meta-line text-muted">Singapore · Open to summer 2027 internships</p>
-        </div>
+  <!-- 01 · LIVE-SYNC: the peak. A real, scroll-driven walkthrough using
+       actual product screenshots from the pitch deck, with a bespoke
+       connecting line (site.js) tracking progress through the sequence. -->
+  <section id="livesync" class="chapter chapter--livesync" data-sc-act="flow">
+    <div class="sc-wrap">
+      <p class="kicker section-tag">Here's what I've built</p>
+      <div class="chapter-head">
+        <span class="num">01</span>
+        <h2 class="sc-display sc-display--md" id="livesync-mark">Live-Sync</h2>
       </div>
-      <div class="rule-accent"></div>
 
-      <div class="intro-grid">
-        <figure class="intro-portrait" data-reveal>
-          <img class="portrait-img" src="img/portrait.jpg"
-               alt="Tan Da Feng standing on the terrace of Griffith Observatory in Los Angeles at sunset"
-               width="1272" height="1684">
-          <figcaption>Griffith Observatory, Los Angeles</figcaption>
-        </figure>
-
-        <div class="intro-body" data-reveal>
-          <h6>Introduction</h6>
-          <p class="intro-lead">I&rsquo;m Da Feng. I build things and then actually use them: a lecture-comprehension tool, a job-search platform, a planner that runs my week. The test I care about is whether a thing still works a month later, not whether it demos well.</p>
-          <p>The one idea I actually run on: the standard is not what you manage on the day you feel like it, it is what you are willing to do on the day you don&rsquo;t. Everything further down this page (the code, the grades, the projects) is downstream of that single habit.</p>
-          <p class="text-muted">Away from a screen I am almost always playing or watching sport, and I will argue about it at length. Below is the short version of what I actually believe about work, borrowed from three people who put it better than I can.</p>
+      <div class="demo-intro">
+        <div class="org">Huawei Tech4City Hackathon, Jul 2026</div>
+        <p class="body">An AI lecture-comprehension platform that lets a student ask questions of a lecture as it happens. The genuinely interesting problem was cost: routing questions dynamically between models cut inference spend by over 80% with no measurable drop in quality. Pitched to judges on the accessibility track.</p>
+        <div class="tags">
+          <span class="tag">Speech-to-text</span>
+          <span class="tag">Vision-language model</span>
+          <span class="tag">Vector database</span>
+          <span class="tag">Model routing</span>
         </div>
       </div>
-    </div>
-  </header>
 
-  <section class="wrap">
-    <div class="statbar">
-      <div class="stat" data-reveal>
-        <div class="stat-num">First Class</div>
-        <div class="stat-key text-muted">Honours, AY25/26</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num">4</div>
-        <div class="stat-key text-muted">Projects shipped</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num">2</div>
-        <div class="stat-key text-muted">Internships</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num">Java · Python · SQL</div>
-        <div class="stat-key text-muted">Daily drivers</div>
+      <div class="demo" data-sc-in>
+        <div class="demo-line" aria-hidden="true"><div class="demo-line__fill"></div></div>
+
+        <div class="demo-stage" id="stage-onboard">
+          <div class="stage-k">Stage 1</div>
+          <h3>Sign up</h3>
+          <p>Two steps and a student or professor account is ready. No setup call, no onboarding deck.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/04-onboarding.png" alt="Live-Sync sign-up screens for a student account and a professor account, side by side" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-setup">
+          <div class="stage-k">Stage 2</div>
+          <h3>Upload, then go live</h3>
+          <p>A professor uploads the slide deck once, then presses Go Live. Live-Sync pre-indexes the deck before the lecture even starts.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/05-professor-setup.png" alt="Live-Sync professor dashboard scheduling a lecture" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-capture">
+          <div class="stage-k">Stage 3</div>
+          <h3>Listen and transcribe</h3>
+          <p>The professor just talks. Live-Sync is already listening, transcribing the lecture live through VideoDB, no typed prompts, no raised hand.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/06-live-capture.png" alt="Live-Sync live capture screen tracking a lecture in progress" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-student">
+          <div class="stage-k">Stage 4</div>
+          <h3>A student joins</h3>
+          <p>A student enters the code on screen and gets the live transcript, with one button to catch up if they lost the thread.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/07-student-view.png" alt="Live-Sync student view showing a live transcript and a catch-up button" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-answer">
+          <div class="stage-k">Stage 5</div>
+          <h3>Ask anything</h3>
+          <p>Answers come straight from that lecture's own slides and transcript, not a generic model response. Routing every question between a lightweight model and a flagship one is what keeps this affordable at scale.</p>
+          <div class="stat">
+            <span class="n"><span class="count" data-demo-count="0 80">0</span>%+</span>
+            <span class="k">cut from inference cost, the real result of routing this way</span>
+          </div>
+          <figure class="stage-shot"><img src="assets/livesync-demo/08-chatbot.png" alt="Live-Sync in-lecture chatbot answering a question from the lecture transcript" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-signal">
+          <div class="stage-k">Stage 6</div>
+          <h3>The room signals back</h3>
+          <p>Students flag lost, too fast, or right pace in real time, so the professor can see where the room actually is without stopping to ask.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/09-signalling.png" alt="Live-Sync live pacing feedback from students during a lecture" loading="lazy" width="1920" height="1024"></figure>
+        </div>
+
+        <div class="demo-stage" id="stage-dashboard">
+          <div class="stage-k">Stage 7</div>
+          <h3>One home for every module</h3>
+          <p>Every module lands in one dashboard: jump into whatever lecture is live, or replay any chapter that already happened.</p>
+          <figure class="stage-shot"><img src="assets/livesync-demo/10-module-dashboard.png" alt="Live-Sync module dashboard listing live and past lectures" loading="lazy" width="1920" height="1024"></figure>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap section">
-    <div class="record" data-reveal>
-      <div class="record-label">
-        <h6>Before university</h6>
+  <!-- 02 · THE REST OF WHAT SHIPPED: pan. Day in a Life first, per direct
+       instruction, then StudentConnect and Agent Forge. -->
+  <section class="chapter chapter--projects" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="chapter-head">
+        <span class="num">02</span>
+        <h2 class="sc-display sc-display--md">The rest of what shipped</h2>
       </div>
-      <div class="record-body">
-        <h3 class="record-title">National service.</h3>
-        <p class="text-muted">Armour officer with the 48th Singapore Armoured Regiment, commissioned as a Lieutenant and responsible for a platoon of thirty.</p>
+    </div>
+  </section>
+  <section class="act-bg--projects" data-sc-act="pan" data-sc-span="5.2">
+    <div data-sc-stage>
+      <div class="rail" data-sc-pan="0.06">
+        <div class="rail-lead">
+          <h3 class="sc-display sc-display--md">Three more, all shipped</h3>
+          <p class="sc-body">A summer programme and two hackathons.</p>
+        </div>
+
+        <article id="dayinalife" class="proj-card" data-sc-tilt="5">
+          <span class="idx">01</span>
+          <h3>Day in a Life</h3>
+          <div class="org">Personal project, 2026</div>
+          <p class="body">A planner built because nothing else held the whole picture: classes, tasks, shared calendars and day marks for exams and trips, in one month grid. Local-first and installable, so it opens instantly and still works on the MRT. His own NUS timetable runs in it, which is the real test: he notices within a day when something is wrong.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">PWA</span><span class="tag">Local-first</span></div>
+        </article>
+
+        <article id="studentconnect" class="proj-card" data-sc-tilt="5">
+          <span class="idx">02</span>
+          <h3>StudentConnect</h3>
+          <div class="org">NUS Orbital, May to Jul 2026</div>
+          <p class="body">A peer mentorship platform matching students with seniors who already passed the module they are about to fail. Designed and deployed the REST APIs with JWT authentication over JPA repositories, and built the reputation and gamified-achievement system that gives mentors a reason to keep answering. Completed at Orbital&rsquo;s Apollo 11 tier.</p>
+          <div class="tags"><span class="tag">Spring Boot</span><span class="tag">JWT auth</span><span class="tag">JPA/Hibernate</span><span class="tag">REST</span></div>
+        </article>
+
+        <article id="agentforge" class="proj-card" data-sc-tilt="5">
+          <span class="idx">03</span>
+          <h3>Agent Forge</h3>
+          <div class="org">Hackathon, Jun 2026</div>
+          <p class="body">A job-search platform pulling together three things students normally do in three different places: live job aggregation, automated resume-filling, and mock interview review. Defined the product scope and architected the Supabase and MongoDB backend holding the structured user, listing and transaction-style data.</p>
+          <div class="tags"><span class="tag">Supabase</span><span class="tag">MongoDB</span><span class="tag">Product scoping</span></div>
+        </article>
+
+        <div class="rail-close">
+          <p class="sc-body">All shipped, all finished.</p>
+          <p class="runtext">Ask for the code, the architecture, or the parts that didn&rsquo;t work: <a href="mailto:dafengtan1444@gmail.com">dafengtan1444@gmail.com</a></p>
+        </div>
       </div>
-      <div class="record-facts">
+    </div>
+  </section>
+
+  <!-- 03 · EXPERIENCE AND EDUCATION -->
+  <section class="chapter chapter--cv" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="chapter-head">
+        <span class="num">03</span>
+        <h2 class="sc-display sc-display--md">Experience and education</h2>
+      </div>
+
+      <div class="sc-stack" data-sc-in data-sc-stagger="0">
+        <article id="sia" class="role">
+          <div><div class="when">May to Aug 2026</div></div>
+          <div>
+            <h3>Corporate Analyst Intern</h3>
+            <div class="org">SIA Engineering Company</div>
+            <p class="body">Worked with operations leadership to scope a data platform that quantified savings per initiative, contributing to an estimated 20% reduction in yearly support-services expenditure. Owned an automation project end to end that cut monthly manpower reporting turnaround by roughly 80%, and built the Excel-to-Power BI pipeline behind it with role-based access controls over sensitive data.</p>
+          </div>
+        </article>
+
+        <article id="gdg" class="role">
+          <div><div class="when">Aug 2026, ongoing</div></div>
+          <div>
+            <h3>Technology Associate</h3>
+            <div class="org">NUS Google Developer Group</div>
+            <p class="body">Designs and maintains backend REST APIs and database schemas (Node.js, PostgreSQL) powering internal tooling that syncs and validates partner data before it reaches the dashboard. Built automated ETL scripts and scheduled jobs to clean, transform and load partner data, cutting manual data-entry errors and dashboard refresh time. Supports Siloam, a nonprofit partner, with data management and dashboard development.</p>
+          </div>
+        </article>
+
+        <article id="bcms" class="role role--peak">
+          <div><div class="when">Aug 2026, ongoing</div></div>
+          <div>
+            <h3>Software Engineer</h3>
+            <div class="org">Raffles Hall Developers</div>
+            <p class="body">Designed a 12-table Postgres schema with 35 row-level-security policies and a custom JWT access-token hook for database-level, role-based access control. Built the Block Committee Management System (BCMS), a full-stack Next.js 16, TypeScript and Supabase platform on Vercel: now the system of record for 44 events, including an idempotent notification pipeline (Vercel Cron, Telegram Bot API) with append-only log deduplication to guarantee zero duplicate alerts.</p>
+            <div class="ledger" data-sc-reveal="up" data-sc-reveal-at="0.05 0.35">
+              <div class="ledger-head">BCMS, in numbers</div>
+              <div class="ledger-grid">
+                <div class="ledger-stat"><div class="n" data-sc-count="0 12" data-sc-count-ms="1200">0</div><div class="k">Postgres tables</div></div>
+                <div class="ledger-stat"><div class="n" data-sc-count="0 35" data-sc-count-ms="1400">0</div><div class="k">row-level-security policies</div></div>
+                <div class="ledger-stat"><div class="n" data-sc-count="0 44" data-sc-count-ms="1600">0</div><div class="k">events of record</div></div>
+                <div class="ledger-stat"><div class="n">0</div><div class="k">duplicate alerts, by design</div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="teaching" class="role">
+          <div><div class="when">Jun 2026, ongoing</div></div>
+          <div>
+            <h3>Teaching Assistant, CS1010A</h3>
+            <div class="org">National University of Singapore</div>
+            <p class="body">Weekly tutorials and lab sessions on Java fundamentals, turning technical concepts into explanations a first-year can act on, plus individual feedback on assignments and practical exams aimed at independent problem-solving rather than pattern-matching.</p>
+          </div>
+        </article>
+
+        <article id="toyomi" class="role">
+          <div><div class="when">Mar to May 2025</div></div>
+          <div>
+            <h3>Digital Marketing Intern</h3>
+            <div class="org">National Electrical Traders (Toyomi)</div>
+            <p class="body">Identified a customer-experience gap in review visibility and shipped a pipeline syncing Shopee and Lazada comments to the storefront in near real-time, cutting turnaround from around two minutes to seconds per comment. Also ran SEO strategy and digital marketing analytics against product visibility and conversion.</p>
+          </div>
+        </article>
+
+        <article id="saf" class="role">
+          <div><div class="when">Nov 2023 to Nov 2024</div></div>
+          <div>
+            <h3>Lieutenant, Armour</h3>
+            <div class="org">Singapore Armed Forces, 48th Singapore Armoured Regiment</div>
+            <p class="body">Full-time national service. Responsible for a platoon of thirty, covering personnel planning, safety and logistics.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="edu-toolkit-grid" data-sc-in data-sc-stagger="60">
         <div>
-          <div class="fact-v">2023–24</div>
-          <div class="fact-k text-muted">Full-time</div>
+          <div class="edu-block">
+            <h3>Bachelor of Business Analytics (Computing)</h3>
+            <div class="org">National University of Singapore, Aug 2025 to Jun 2029</div>
+            <p>First Class Honours, AY2025/2026. Specialisation: Machine Learning and Finance. Teaching assistant for CS1010A Programming Methodology.</p>
+          </div>
+          <div class="edu-block">
+            <h3>GCE A-Levels, 86.25 rank points</h3>
+            <div class="org">Nanyang Junior College, Mar 2021 to Dec 2022</div>
+            <p>H2 Physics (A), Chemistry (A), Mathematics (A), Project Work (A). ODAC President, Galileo Programme cohort top performer, Orientation Group Leader.</p>
+          </div>
+          <p class="footnote">Competitions: WorldQuant International Quant Championship, Micron ISE Business Analytics Case Competition, Huawei Tech4City Hackathon, TikTok JAM, Agent Forge Hackathon, JPMorgan Chase Quantitative Research and Software Engineering job simulations (Forage). Activities: Raffles Hall Block Committee (Vice Head), Raffles Hall Developers, Ultimate Frisbee, NUS Volunteer Corps.</p>
+        </div>
+        <div class="spec-sheet">
+          <dl>
+            <div class="spec-row"><dt>Languages</dt><dd>Python, Java, R, SQL, JavaScript, HTML, CSS</dd></div>
+            <div class="spec-row"><dt>Frameworks</dt><dd>Spring Boot, React, Vite, JPA and Hibernate, Next.js</dd></div>
+            <div class="spec-row"><dt>Data and backend</dt><dd>PostgreSQL, MySQL, Supabase, MongoDB, ETL scripting, REST API design, row-level-security design</dd></div>
+            <div class="spec-row"><dt>Analytics</dt><dd>Excel, Power BI, SQL, data visualisation, statistical and financial reporting</dd></div>
+            <div class="spec-row"><dt>Tools</dt><dd>Git, Postman, Microsoft Office</dd></div>
+            <div class="spec-row"><dt>Domain interest</dt><dd>Payments, fintech, platform infrastructure</dd></div>
+          </dl>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap section">
-    <div class="section-head">
-      <h2>Selected work</h2>
-      <a href="work.html">All projects →</a>
-    </div>
+  <!-- 04 · WHAT I RUN ON / INTERESTS -->
+  <section class="chapter chapter--interests" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="chapter-head">
+        <span class="num">04</span>
+        <h2 class="sc-display sc-display--md" id="interests-mark">What I run on</h2>
+        <span class="note">Sport, mostly</span>
+      </div>
 
-    <a class="workrow" href="work.html#live-sync">
-      <span class="workidx text-muted">01</span>
-      <span class="worktitle">Live-Sync</span>
-      <span class="workblurb text-muted">Speech-to-text, a vision-language model and a vector database, wired into one lecture-comprehension tool.</span>
-      <span class="workyear">2026</span>
-    </a>
-    <a class="workrow" href="work.html#agent-forge">
-      <span class="workidx text-muted">02</span>
-      <span class="worktitle">Agent Forge</span>
-      <span class="workblurb text-muted">Job-search platform: live aggregation, automated resume-filling, mock interview review.</span>
-      <span class="workyear">2026</span>
-    </a>
-    <a class="workrow" href="work.html#studentconnect">
-      <span class="workidx text-muted">03</span>
-      <span class="worktitle">StudentConnect</span>
-      <span class="workblurb text-muted">Peer mentorship platform built for NUS Orbital at the Apollo 11 tier.</span>
-      <span class="workyear">2026</span>
-    </a>
-    <a class="workrow" href="work.html#day-in-a-life">
-      <span class="workidx text-muted">04</span>
-      <span class="worktitle">Day in a Life</span>
-      <span class="workblurb text-muted">A local-first planner I actually use: calendars, tasks and my NUS timetable in one grid.</span>
-      <span class="workyear">2026</span>
-    </a>
-    <div class="rule-thin"></div>
-  </section>
+      <p class="creed-thesis" data-sc-in>I have loved sport my whole life, and the two athletes I keep coming back to were never the most gifted men in the room. They were the ones who refused to be out-worked. That is the only competitive advantage I have ever seen hold up.</p>
 
-  <section class="wrap section" id="creed">
-    <div class="section-head">
-      <h2>What I run on</h2>
-      <span class="section-note text-muted">Sport, mostly</span>
-    </div>
+      <div class="creed-grid" data-sc-in data-sc-stagger="70">
+        <article class="creed">
+          <div class="role-line">Cristiano Ronaldo, Forward</div>
+          <h3>The repetition is the point.</h3>
+          <p>He arrived at Sporting as a skinny winger who was not even the best player in his own academy, and turned himself into the most relentlessly conditioned athlete in the sport by treating every session as non-negotiable: the extra hour after training, the diet, the sleep, for two decades without a gap. He is still there and still scoring in his forties, because he never once let the standard slip and called it a rest day.</p>
+          <blockquote>Talent without working hard is nothing.</blockquote>
+          <p class="cite">Cristiano Ronaldo</p>
+        </article>
 
-    <p class="creed-thesis">I have loved sport my whole life, and the two athletes I keep coming back to were never the most gifted men in the room. They were the ones who refused to be out-worked. That is the only competitive advantage I have ever seen hold up.</p>
+        <article class="creed">
+          <div class="role-line">Kobe Bryant, Guard</div>
+          <h3>Fall in love with the process.</h3>
+          <p>The Mamba Mentality was never a slogan, it was a schedule: in the gym before dawn, counting makes rather than shots, studying footwork frame by frame, chasing the small edge that compounds while everyone else is still asleep. He measured himself against the work instead of the scoreboard, which is why the losses never moved him and the championships never quite satisfied him either.</p>
+          <blockquote>Mamba mentality is all about focusing on the process and trusting in the hard work when it matters most.</blockquote>
+          <p class="cite">Kobe Bryant</p>
+        </article>
+      </div>
 
-    <div class="creed-grid">
-      <article class="creed" data-reveal>
-        <h6 class="creed-role">Cristiano Ronaldo &middot; Forward</h6>
-        <h3 class="creed-name">The repetition is the point.</h3>
-        <p>He arrived at Sporting as a skinny winger who was not even the best player in his own academy, and turned himself into the most relentlessly conditioned athlete in the sport by treating every session as non-negotiable: the extra hour after training, the diet, the sleep, for two decades without a gap. He is still there and still scoring in his forties, because he never once let the standard slip and called it a rest day.</p>
-        <blockquote class="creed-quote">Talent without working hard is nothing.</blockquote>
-        <p class="creed-cite text-muted">Cristiano Ronaldo</p>
-      </article>
-
-      <article class="creed" data-reveal>
-        <h6 class="creed-role">Kobe Bryant &middot; Guard</h6>
-        <h3 class="creed-name">Fall in love with the process.</h3>
-        <p>The Mamba Mentality was never a slogan, it was a schedule: in the gym before dawn, counting makes rather than shots, studying footwork frame by frame, chasing the small edge that compounds while everyone else is still asleep. He measured himself against the work instead of the scoreboard, which is why the losses never moved him and the championships never quite satisfied him either.</p>
-        <blockquote class="creed-quote">Mamba mentality is all about focusing on the process and trusting in the hard work when it matters most.</blockquote>
-        <p class="creed-cite text-muted">Kobe Bryant</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap section" id="boyhood">
-    <div class="section-head">
-      <h2>Favourite film</h2>
-      <span class="section-note text-muted">Boyhood &middot; Richard Linklater &middot; 2014</span>
-    </div>
-
-    <div class="film">
-      <figure class="film-poster" data-reveal>
-        <img src="img/boyhood.png"
-             alt="Theatrical poster for Boyhood (2014), directed by Richard Linklater"
-             width="250" height="370">
-        <figcaption>Boyhood, 2014</figcaption>
-      </figure>
-
-      <div class="film-body" data-reveal>
-        <h3 class="film-lead">Linklater shot it over twelve years with the same cast, and let the ordinary days do the work.</h3>
-        <p>Ellar Coltrane was six years old when filming started and eighteen when it finished. There is no villain in it, no twist, and no scene where somebody&rsquo;s life visibly turns. It is just a kid&rsquo;s normal weeks (car journeys, house moves, arguments, a first job) stacked one on top of another until you look up and realise an entire person has been assembled out of them.</p>
-        <p>That is why it is my favourite, and it is the same argument Ronaldo and Kobe make, only told quietly. Nobody in it gets a breakthrough moment. You never feel the day that changes you; you only ever see it afterwards, in the aggregate. Which is exactly why I care more about what I do on an ordinary Tuesday than about what I would do if I were inspired. And probably why the app I actually use every day is a planner about ordinary days.</p>
-        <div class="tagrow">
-          <span class="tag tag-outline">Twelve years, one cast</span>
-          <span class="tag tag-outline">No plot, on purpose</span>
-          <span class="tag tag-outline">Compounding</span>
+      <div class="film" id="boyhood">
+        <figure class="film-poster" data-sc-reveal="up" data-sc-reveal-at="0.05 0.35">
+          <img src="assets/boyhood.png" width="250" height="370"
+               alt="Theatrical poster for Boyhood (2014), directed by Richard Linklater">
+          <figcaption>Boyhood, 2014</figcaption>
+        </figure>
+        <div class="film-body" data-sc-in data-sc-stagger="60">
+          <h3>Linklater shot it over twelve years with the same cast, and let the ordinary days do the work.</h3>
+          <p>Ellar Coltrane was six years old when filming started and eighteen when it finished. There is no villain in it, no twist, and no scene where somebody&rsquo;s life visibly turns. It is just a kid&rsquo;s normal weeks (car journeys, house moves, arguments, a first job) stacked one on top of another until you look up and realise an entire person has been assembled out of them.</p>
+          <p>That is why it is my favourite, and it is the same argument Ronaldo and Kobe make, only told quietly. Nobody in it gets a breakthrough moment. You never feel the day that changes you; you only ever see it afterwards, in the aggregate. Which is exactly why I care more about what I do on an ordinary Tuesday than about what I would do if I were inspired. And probably why the app I actually use every day is a planner about ordinary days.</p>
+          <div class="film-tags">
+            <span>Twelve years, one cast</span>
+            <span>No plot, on purpose</span>
+            <span>Compounding</span>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <aside class="film-side" data-reveal>
-        <div class="fact">
-          <div class="fact-v">12 years</div>
-          <div class="fact-k text-muted">Time on set</div>
+  <!-- 05 · CLOSE: contact, then his picture again, the last thing on screen. -->
+  <section id="close" class="chapter chapter--close" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="colophon" data-sc-in>
+        <h2 class="sc-display sc-display--md">Get in touch</h2>
+        <p>Internships, projects, or a disagreement about whether the model is actually learning anything.</p>
+        <p class="runtext">Email is fastest: <a href="mailto:dafengtan1444@gmail.com">dafengtan1444@gmail.com</a></p>
+        <div class="close-links">
+          <a href="https://linkedin.com/in/da-feng-tan-644568368">LinkedIn, /in/da-feng-tan-644568368</a>
+          <a href="tel:+6588781455">+65 8878 1455</a>
+          <span>Singapore</span>
         </div>
-        <dl class="stack">
-          <dt>Director</dt>
-          <dd>Richard Linklater</dd>
-        </dl>
-        <dl class="stack">
-          <dt>Released</dt>
-          <dd>2014 &middot; 165 min</dd>
-        </dl>
-        <dl class="stack">
-          <dt>Filmed</dt>
-          <dd>2002&ndash;2013</dd>
-        </dl>
-        <p class="proj-meta text-muted">Same cast throughout</p>
-      </aside>
-    </div>
-  </section>
-
-  <section class="banner">
-    <div class="wrap" data-reveal>
-      <h6>Now</h6>
-      <p class="banner-statement">Reading algorithms, statistics and econometrics, and teaching the year below how to program.</p>
-      <p class="banner-sub">CS2040, ST2334 and BT2101 this semester, plus tutorials for CS1010A. Machine learning trainee with NUS Fintech Society, product associate at NUS Google Developer Student Club, and looking for a summer 2027 internship in software, data or product.</p>
-    </div>
-  </section>
-
-  <section class="wrap section">
-    <div class="cv-split">
-      <div>
-        <h2>Get in touch</h2>
-        <p class="text-muted lede">Internships, projects, or an argument about whether the model is actually learning anything. Email is fastest.</p>
-        <a href="mailto:dafengtan1444@gmail.com" class="btn btn-primary btn-block" style="max-width:min(320px, 100%)">dafengtan1444@gmail.com</a>
-      </div>
-      <div>
-        <h6 style="margin-bottom:var(--space-3)">Elsewhere</h6>
-        <a class="linkrow" href="https://linkedin.com/in/da-feng-tan">
-          <span>LinkedIn</span>
-          <span class="handle text-muted">/in/da-feng-tan</span>
-        </a>
-        <!-- TODO: GitHub handle not on the résumé, swap the href and handle below. -->
-        <a class="linkrow" href="#">
-          <span>GitHub</span>
-          <span class="handle text-muted">handle needed</span>
-        </a>
-        <a class="linkrow" href="mailto:dafengtan1444@gmail.com">
-          <span>Email</span>
-          <span class="handle text-muted">dafengtan1444@gmail.com</span>
-        </a>
-        <a class="linkrow" href="tel:+6588781455">
-          <span>Phone</span>
-          <span class="handle text-muted">+65 8878 1455</span>
-        </a>
-        <div class="rule-thin"></div>
+        <div class="foot-print">
+          <span>&copy; 2026 Tan Da Feng</span>
+          <span>Open to summer 2027 internships in software, data, or product</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="foot">
-    <div class="wrap text-muted">
-      <span>© 2026 Tan Da Feng</span>
-      <span>Singapore</span>
-    </div>
-  </footer>
-</div>
+</main>
 
-<script src="reveal.js"></script>
+<script src="scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+<script src="site.js"></script>
 </body>
 </html>
