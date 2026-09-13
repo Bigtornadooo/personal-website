@@ -113,12 +113,8 @@ main { display: block; }
 }
 
 /* -------------------------------------------------------------- chapters -- */
-.chapter { padding-block: var(--sc-10); }
-.chapter--livesync  { background: #EEF2FB; }
-.chapter--projects  { background: #F5F4F0; }
-.chapter--cv        { background: #F3F2EE; }
-.chapter--interests { background: #F8F1E7; }
-.chapter--close     { background: #F7F5F1; padding-block: var(--sc-9) var(--sc-6); }
+.chapter { padding-block: var(--sc-10); background: var(--sc-canvas); }
+.chapter--close { padding-block: var(--sc-9) var(--sc-6); }
 
 .chapter-head {
   display: grid; grid-template-columns: auto 1fr; align-items: baseline;
@@ -240,7 +236,7 @@ main { display: block; }
 .rail-close { flex: 0 0 clamp(16rem, 24vw, 20rem); display: flex; flex-direction: column; justify-content: center; }
 .rail-close a { color: var(--sc-link); }
 
-.act-bg--projects { background: #F5F4F0; }
+.act-bg--projects { background: var(--sc-canvas); }
 
 /* ---------------------------------------------------------------- CV/exp -- */
 .role {
