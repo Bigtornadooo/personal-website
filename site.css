@@ -48,6 +48,12 @@
 
 ::selection { background: var(--sc-accent); color: var(--sc-accent-ink); }
 
+/* scrollcraft.css's film-grain overlay exists to keep a dark ground from
+   banding ("the difference between a dark page and a lit room"). This page
+   is an all-white canvas now, so that same noise just reads as a grey haze
+   across every section — kill it rather than retint it. */
+.sc-grain { display: none; }
+
 /* -------------------------------------------------------------- structure -- */
 .skip-link {
   position: fixed; left: var(--sc-3); top: var(--sc-3); z-index: 100;
