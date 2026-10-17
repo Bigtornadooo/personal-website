@@ -416,3 +416,94 @@ main { display: block; }
   .demo-line__fill { transform: scaleY(1) !important; }
   .demo-stage > * { opacity: 1 !important; transform: none !important; }
 }
+
+/* ------------------------------------------------- 05 · Bigtornado reviews mods --
+   Rows share the experience section's grammar (code column left, writing
+   right, hairline between). The one bold element is the weight bar: where a
+   module's marks actually go, split by component, with an honest note on
+   each part underneath. Tones are steps of the one accent blue. */
+.mods-thesis { max-width: 62ch; font-size: var(--sc-t-lg); color: var(--sc-ink); margin-bottom: var(--sc-7); }
+.mods-foot { margin-top: var(--sc-6); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.mod { border-bottom: 1px solid var(--hairline); }
+.mod:first-child { border-top: 1px solid var(--hairline-strong); }
+.mod[open] { border-bottom-color: var(--hairline-strong); }
+
+.mod-summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 9rem minmax(0, 1fr) auto 1.5rem;
+  gap: var(--sc-5); align-items: center; padding-block: var(--sc-5);
+}
+.mod-summary::-webkit-details-marker { display: none; }
+.mod-summary:focus-visible { outline: 2px solid var(--sc-accent); outline-offset: 4px; border-radius: var(--sc-r-sm); }
+.mod-code { font-family: var(--sc-font-mono); font-size: var(--sc-t-lg); color: var(--sc-ink); letter-spacing: -0.01em; }
+.mod-head { display: flex; flex-direction: column; gap: var(--sc-1); min-width: 0; }
+.mod-title { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.mod-verdict { font-size: var(--sc-t-base); color: var(--sc-ink); line-height: 1.4; max-width: 56ch; }
+
+.mod-ratings { display: grid; gap: 6px; margin: 0; }
+.mod-rating { display: grid; grid-template-columns: 5.5rem auto; align-items: center; gap: var(--sc-3); }
+.mod-rating dt { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+.mod-rating dd { margin: 0; }
+.pips { display: inline-flex; gap: 3px; }
+.pips i { width: 14px; height: 6px; border-radius: 2px; background: var(--hairline); }
+.pips i.on { background: var(--sc-accent); }
+
+/* plus that turns into a minus: answers the open / close action */
+.mod-toggle { position: relative; width: 14px; height: 14px; justify-self: end; }
+.mod-toggle::before, .mod-toggle::after {
+  content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 2px;
+  background: var(--sc-ink-soft); border-radius: 1px; transition: transform 200ms var(--sc-ease-out, ease);
+}
+.mod-toggle::after { transform: rotate(90deg); }
+.mod[open] .mod-toggle::after { transform: rotate(0deg); }
+.mod-summary:hover .mod-code { color: var(--sc-link); }
+
+.mod-body { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--sc-5); padding-bottom: var(--sc-7); }
+.mod-meta { margin: 0; display: grid; gap: var(--sc-3); align-content: start; }
+.mod-meta dt { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+.mod-meta dd { margin: 0; font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); color: var(--sc-ink); }
+.mod-main { max-width: 64ch; }
+.mod-p { margin: 0 0 var(--sc-4); color: var(--sc-ink); }
+.mod-main h4 { margin: 0 0 var(--sc-3); font-size: var(--sc-t-sm); font-weight: 600; color: var(--sc-ink); }
+
+.mod-breakdown { margin-top: var(--sc-6); }
+.weight-bar { display: flex; gap: 3px; height: 2.25rem; border-radius: var(--sc-r-sm); overflow: hidden; }
+.weight-bar .seg {
+  display: flex; align-items: center; padding-inline: var(--sc-2); min-width: 4px;
+  font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); white-space: nowrap; overflow: hidden;
+}
+.t0 { background: var(--sc-accent); color: #fff; }
+.t1 { background: color-mix(in oklab, var(--sc-accent) 62%, #fff); color: #fff; }
+.t2 { background: color-mix(in oklab, var(--sc-accent) 34%, #fff); color: var(--sc-ink); }
+.t3 { background: color-mix(in oklab, var(--sc-accent) 16%, #fff); color: var(--sc-ink); }
+.t4 { background: color-mix(in oklab, var(--sc-ink) 10%, #fff); color: var(--sc-ink); }
+.weight-list { list-style: none; margin: var(--sc-4) 0 0; padding: 0; }
+.weight-list li { padding-block: var(--sc-3); border-top: 1px solid var(--hairline); }
+.comp-head { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; align-items: center; gap: var(--sc-3); }
+.swatch { width: 10px; height: 10px; border-radius: 2px; }
+.comp-name { font-size: var(--sc-t-sm); font-weight: 600; }
+.comp-w { font-family: var(--sc-font-mono); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+.comp-note { margin: var(--sc-2) 0 0 calc(10px + var(--sc-3)); font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.mod-warn { font-size: var(--sc-t-xs); color: #B42318; margin: 0 0 var(--sc-2); }
+
+.mod-fit { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-5); margin-top: var(--sc-6); }
+.fit { padding-left: var(--sc-4); border-left: 2px solid var(--hairline-strong); }
+.fit.take { border-left-color: var(--sc-accent); }
+.fit p { margin: 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.mod-tips { margin-top: var(--sc-6); }
+.mod-tips ul { margin: 0; padding-left: 1.1rem; }
+.mod-tips li { font-size: var(--sc-t-sm); color: var(--sc-ink); margin-bottom: var(--sc-2); }
+
+@media (max-width: 860px) {
+  .mod-summary { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: var(--sc-3); }
+  .mod-code { grid-column: 1; }
+  .mod-head { grid-column: 1; }
+  .mod-ratings { grid-column: 1; }
+  .mod-toggle { grid-column: 2; grid-row: 1; }
+  .mod-body { grid-template-columns: 1fr; gap: var(--sc-4); }
+  .mod-meta { grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); }
+  .mod-fit { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .mod-toggle::before, .mod-toggle::after { transition: none; } }
