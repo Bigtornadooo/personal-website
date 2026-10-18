@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="scrollcraft.css?v=20261018c">
 <link rel="stylesheet" href="site.css?v=20261018g">
 <link rel="stylesheet" href="front.css?v=20261018g">
+<link rel="stylesheet" href="projects.css?v=20261018h">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
     </a>
     <ul class="fp-links">
       <li><a href="#front" aria-current="page">Home</a></li>
-      <li><a href="#livesync">Projects</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="#close">Contact</a></li>
@@ -45,7 +46,7 @@
         <a class="fp-btn" href="mailto:dafengtan1444@gmail.com">Get in touch
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="fp-link" href="#livesync">See my work
+        <a class="fp-link" href="#projects">See my work
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.5L8 11l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -63,7 +64,7 @@
       </div>
     </div>
 
-    <a class="fp-scroll" href="#livesync" aria-label="Scroll down to explore more about me">
+    <a class="fp-scroll" href="#projects" aria-label="Scroll down to explore more about me">
       <svg class="fp-ring" viewBox="0 0 140 140" aria-hidden="true">
         <defs><path id="fp-ring-path" d="M70,70 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0"/></defs>
         <text><textPath href="#fp-ring-path">scroll down &#8226; explore more about me &#8226;</textPath></text>
@@ -93,10 +94,78 @@
 
 <main id="top">
 
-  <!-- 01 · LIVE-SYNC: the peak. A real, scroll-driven walkthrough using
-       actual product screenshots from the pitch deck, with a bespoke
-       connecting line (site.js) tracking progress through the sequence. -->
-  <section id="livesync" class="chapter chapter--livesync" data-sc-act="flow">
+  <!-- 01 · PROJECTS: a pinned horizontal rail of five cards (projects.js maps
+       vertical scroll to horizontal movement). Live-Sync and Claim! open a
+       detail panel below the rail; the other three are plain cards. -->
+  <section id="projects" class="pr" aria-labelledby="projects-mark">
+    <div class="pr-pin">
+      <div class="pr-head">
+        <p class="kicker section-tag">Here's what I've built</p>
+        <div class="chapter-head">
+          <span class="num">01</span>
+          <h2 class="sc-display sc-display--md" id="projects-mark">Projects</h2>
+          <span class="note pr-hint">Scroll to browse</span>
+        </div>
+      </div>
+      <div class="pr-viewport">
+        <ol class="pr-track">
+          <li class="pr-card" id="card-livesync">
+            <div class="pr-cover"><img src="assets/livesync-demo/07-student-view.png" alt="Live-Sync student view during a live lecture" width="1920" height="1024" loading="lazy" decoding="async"></div>
+            <div class="pr-body">
+              <h3>Live-Sync</h3>
+              <div class="org">Huawei Tech4City Hackathon, Jul 2026</div>
+              <p>An AI lecture-comprehension platform that lets a student ask questions of a lecture as it happens.</p>
+              <div class="tags"><span class="tag">Speech-to-text</span><span class="tag">Vision-language model</span><span class="tag">Vector database</span><span class="tag">Model routing</span></div>
+              <button class="fp-btn pr-open" type="button" data-detail="detail-livesync" aria-controls="detail-livesync" aria-expanded="false">View walkthrough <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </li>
+          <li class="pr-card" id="card-claim">
+            <div class="pr-cover"><img src="assets/claim-demo/cover.jpg?v=20261018d" alt="Claim! scoring a suspicious claim PDF, final risk score 0.43, Investigate" width="960" height="623" loading="lazy" decoding="async"></div>
+            <div class="pr-body">
+              <h3>Claim!</h3>
+              <div class="org">IBM Z Datathon, Oct 2026</div>
+              <p>An explainable insurance-claim risk scorer for claims officers, built by a team of six in one day.</p>
+              <div class="tags"><span class="tag">XGBoost</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">IBM LinuxONE</span></div>
+              <button class="fp-btn pr-open" type="button" data-detail="detail-claim" aria-controls="detail-claim" aria-expanded="false">Watch demo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </li>
+          <li class="pr-card" id="dayinalife">
+            <div class="pr-cover pr-cover--type pr-cover--sky" aria-hidden="true"><span>Day in a Life</span></div>
+            <div class="pr-body">
+              <h3>Day in a Life</h3>
+              <div class="org">Personal project, 2026</div>
+              <p>A planner built because nothing else held the whole picture: classes, tasks, shared calendars and day marks for exams and trips, in one month grid.</p>
+              <div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">PWA</span><span class="tag">Local-first</span></div>
+            </div>
+          </li>
+          <li class="pr-card" id="studentconnect">
+            <div class="pr-cover pr-cover--type pr-cover--ink" aria-hidden="true"><span>StudentConnect</span></div>
+            <div class="pr-body">
+              <h3>StudentConnect</h3>
+              <div class="org">NUS Orbital, May to Jul 2026</div>
+              <p>A peer mentorship platform matching students with seniors who already passed the module they are about to fail.</p>
+              <div class="tags"><span class="tag">Spring Boot</span><span class="tag">JWT auth</span><span class="tag">JPA/Hibernate</span><span class="tag">REST</span></div>
+            </div>
+          </li>
+          <li class="pr-card" id="agentforge">
+            <div class="pr-cover pr-cover--type pr-cover--blue" aria-hidden="true"><span>Agent Forge</span></div>
+            <div class="pr-body">
+              <h3>Agent Forge</h3>
+              <div class="org">Hackathon, Jun 2026</div>
+              <p>A job-search platform pulling together three things students normally do in three different places: live job aggregation, automated resume-filling, and mock interview review.</p>
+              <div class="tags"><span class="tag">Supabase</span><span class="tag">MongoDB</span><span class="tag">Product scoping</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE-SYNC DETAIL: the existing 7-stage walkthrough, moved here unchanged.
+       Hidden until "View walkthrough" is pressed. -->
+  <section id="detail-livesync" class="pr-detail chapter chapter--livesync" aria-labelledby="livesync-mark" hidden>
+    <div class="sc-wrap pr-detail-bar"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
+    <div id="livesync">
     <div class="sc-wrap">
       <p class="kicker section-tag">Here's what I've built</p>
       <div class="chapter-head">
@@ -172,63 +241,59 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- 02 · THE REST OF WHAT SHIPPED: pan. Day in a Life first, per direct
-       instruction, then StudentConnect and Agent Forge. -->
-  <section class="chapter chapter--projects" data-sc-act="flow">
-    <div class="sc-wrap">
-      <div class="chapter-head">
-        <span class="num">02</span>
-        <h2 class="sc-display sc-display--md">The rest of what shipped</h2>
-      </div>
     </div>
+    <div class="sc-wrap pr-detail-bar pr-detail-bar--end"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
   </section>
-  <section class="act-bg--projects" data-sc-act="pan" data-sc-span="6.4">
-    <div data-sc-stage>
-      <div class="rail" data-sc-pan="0.06">
-        <div class="rail-lead">
-          <h3 class="sc-display sc-display--md">Four more, all shipped</h3>
-          <p class="sc-body">A datathon, a summer programme and two hackathons.</p>
-        </div>
 
-        <article id="claim" class="proj-card" data-sc-tilt="5">
-          <span class="idx">01</span>
-          <h3>Claim!</h3>
-          <div class="org">IBM Z Datathon, Oct 2026</div>
-          <p class="body">An explainable insurance-claim risk scorer for claims officers, built by a team of six in one day. He built the product layer: a FastAPI service and web UI that score a claim with the team&rsquo;s tuned XGBoost model, return a fast-track, review or investigate tier, and show each field&rsquo;s TreeSHAP contribution. Containerised on an IBM LinuxONE (s390x) server, with an offline PDF claim reader that fills all 19 fields and re-scores after every sentence. A blank policy type changed the tier for 36.7% of claims, so he made it required and added score ranges and a what-if toggle.</p>
-          <div class="tags"><span class="tag">XGBoost</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">IBM LinuxONE</span></div>
-        </article>
-
-        <article id="dayinalife" class="proj-card" data-sc-tilt="5">
-          <span class="idx">02</span>
-          <h3>Day in a Life</h3>
-          <div class="org">Personal project, 2026</div>
-          <p class="body">A planner built because nothing else held the whole picture: classes, tasks, shared calendars and day marks for exams and trips, in one month grid. Local-first and installable, so it opens instantly and still works on the MRT. His own NUS timetable runs in it, which is the real test: he notices within a day when something is wrong.</p>
-          <div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">PWA</span><span class="tag">Local-first</span></div>
-        </article>
-
-        <article id="studentconnect" class="proj-card" data-sc-tilt="5">
-          <span class="idx">03</span>
-          <h3>StudentConnect</h3>
-          <div class="org">NUS Orbital, May to Jul 2026</div>
-          <p class="body">A peer mentorship platform matching students with seniors who already passed the module they are about to fail. Designed and deployed the REST APIs with JWT authentication over JPA repositories, and built the reputation and gamified-achievement system that gives mentors a reason to keep answering. Completed at Orbital&rsquo;s Apollo 11 tier.</p>
-          <div class="tags"><span class="tag">Spring Boot</span><span class="tag">JWT auth</span><span class="tag">JPA/Hibernate</span><span class="tag">REST</span></div>
-        </article>
-
-        <article id="agentforge" class="proj-card" data-sc-tilt="5">
-          <span class="idx">04</span>
-          <h3>Agent Forge</h3>
-          <div class="org">Hackathon, Jun 2026</div>
-          <p class="body">A job-search platform pulling together three things students normally do in three different places: live job aggregation, automated resume-filling, and mock interview review. Defined the product scope and architected the Supabase and MongoDB backend holding the structured user, listing and transaction-style data.</p>
-          <div class="tags"><span class="tag">Supabase</span><span class="tag">MongoDB</span><span class="tag">Product scoping</span></div>
-        </article>
-
-        <div class="rail-close">
-          <p class="sc-body">All shipped, all finished.</p>
-          <p class="runtext">Ask for the code, the architecture, or the parts that didn&rsquo;t work: <a href="mailto:dafengtan1444@gmail.com">dafengtan1444@gmail.com</a></p>
-        </div>
+  <!-- CLAIM! DETAIL: three short clips. GIFs only start loading when this panel opens. -->
+  <section id="detail-claim" class="pr-detail chapter" aria-labelledby="claim-mark" hidden>
+    <div class="sc-wrap">
+      <div class="pr-detail-bar"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
+      <p class="kicker section-tag">IBM Z Datathon, Oct 2026</p>
+      <div class="chapter-head">
+        <span class="num">01</span>
+        <h2 class="sc-display sc-display--md" id="claim-mark">Claim!</h2>
       </div>
+      <p class="wdi-line"><b>WDI Insurance.</b> We did it, so your claims officer doesn&rsquo;t have to guess.</p>
+      <div class="claim-summary">
+        <p>Claim! ranks motor insurance claims so a claims officer knows which ones to check first. It runs an XGBoost model trained on Kaggle claims data and shows the exact TreeSHAP contribution of every field in log-odds, so you can see why a claim got its score.</p>
+        <p>Every claim gets a risk ranking score and a tier: Fast track, Review or Investigate. We built it for the IBM Z Datathon as a team of six in one day, on an IBM LinuxONE server. The claims in the demo are fictional.</p>
+        <div class="tags"><span class="tag">XGBoost</span><span class="tag">TreeSHAP</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">IBM LinuxONE</span></div>
+      </div>
+
+      <ol class="claim-clips">
+        <li class="claim-clip">
+          <div class="claim-clip-text">
+            <span class="claim-step">1</span>
+            <h3>Score a claim from a form</h3>
+            <p>Fill in the claim details and press Calculate risk score. The score shows up with the fields that pushed it up or down.</p>
+          </div>
+          <figure class="claim-gif"><img data-src="assets/claim-demo/claim-01-form-scoring.gif" alt="Screen recording: filling in the Claim! form, pressing Calculate risk score, and the score of 0.08 (Fast track) appearing with a chart of which fields raised or lowered it" width="960" height="623" loading="lazy" decoding="async"></figure>
+        </li>
+        <li class="claim-clip">
+          <div class="claim-clip-text">
+            <span class="claim-step">2</span>
+            <h3>The reader goes through a safe PDF</h3>
+            <p>The reader goes through the claim PDF line by line and highlights the key words. The live decision feed on the right updates as it reads.</p>
+          </div>
+          <figure class="claim-gif"><img data-src="assets/claim-demo/claim-02-pdf-reader-safe.gif" alt="Screen recording: the PDF reader moving through a safe claim line by line, highlighting key words while the live decision feed updates, ending at 0.03 Fast track" width="960" height="623" loading="lazy" decoding="async"></figure>
+        </li>
+        <li class="claim-clip">
+          <div class="claim-clip-text">
+            <span class="claim-step">3</span>
+            <h3>A suspicious claim, then &ldquo;what if&rdquo;</h3>
+            <p>Same reader on a suspicious claim, and the final score lands on Investigate. Then fields get switched off to see how the score would change.</p>
+          </div>
+          <figure class="claim-gif"><img data-src="assets/claim-demo/claim-03-suspicious-whatif.gif" alt="Screen recording: the reader scoring a suspicious claim at 0.43, Investigate, then fields being switched off in the what-if panel and the score dropping" width="960" height="623" loading="lazy" decoding="async"></figure>
+        </li>
+      </ol>
+
+      <details class="claim-full">
+        <summary>Watch the full 65 second run</summary>
+        <figure class="claim-gif"><img data-src="assets/claim-demo/claim-full.gif" alt="Screen recording of the full 65 second Claim! demo: the claim form, a safe PDF, then a suspicious PDF and the what-if toggles" width="960" height="623" loading="lazy" decoding="async"></figure>
+      </details>
+
+      <div class="pr-detail-bar pr-detail-bar--end"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
     </div>
   </section>
 
@@ -453,5 +518,6 @@
 <script src="scrollcraft.js?v=20261018c"></script>
 <script>ScrollCraft.mount(document.body);</script>
 <script src="site.js?v=20261018c"></script>
+<script src="projects.js?v=20261018h"></script>
 </body>
 </html>
