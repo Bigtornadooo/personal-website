@@ -10,15 +10,8 @@
   --fp-blue: var(--sc-accent);
 }
 
-/* The career-log rail waits until the front page has scrolled away. */
-@media (min-width: 901px) {
-  .log-rail { transition: transform 420ms var(--sc-ease-out, ease), opacity 320ms ease; }
-  body.at-front .log-rail { transform: translateX(-100%); opacity: 0; pointer-events: none; }
-}
-@media (max-width: 900px) {
-  body.at-front .log-rail { transform: translateY(100%); }
-  .log-rail { transition: transform 320ms ease; }
-}
+/* The career-log rail is gone: the page uses the full width. */
+main { margin-left: 0 !important; }
 
 .fp { position: relative; overflow: hidden; background: #fff; color: var(--fp-ink); }
 
@@ -29,7 +22,8 @@
 }
 .fp-brand { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--fp-ink);
   font-family: var(--sc-font-display); font-weight: 700; font-size: 1.6rem; letter-spacing: -0.01em; }
-.fp-logo svg { width: 3rem; height: 3rem; display: block; }
+.fp-logo { width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center;
+  background: #E6F0FC; border: 3px solid var(--fp-blue); font-size: 1.6rem; line-height: 1; }
 .fp-links { display: flex; gap: clamp(1rem, 3vw, 3rem); list-style: none; margin: 0; padding: 0; }
 .fp-links a { font-family: var(--sc-font-display); font-weight: 500; font-size: 1.1rem; color: #2B2F36; text-decoration: none; position: relative; padding: 0.25rem 0; }
 .fp-links a:hover { color: var(--fp-blue); }
@@ -134,3 +128,19 @@
   .fp-ring, .fp-ribbon-track { animation: none; }
   .fp-btn, .fp-btn::before { transition: none; }
 }
+
+/* ------------------------------------------------- organisation logos -- */
+.role-head { display: flex; align-items: center; gap: 1rem; margin-bottom: var(--sc-3); }
+.role-head h3 { margin: 0 0 2px; }
+.role-head .org { margin-bottom: 0; }
+.role-logo { width: 56px; height: 56px; flex: none; object-fit: contain; border-radius: 12px;
+  background: #fff; border: 1px solid var(--hairline); }
+.edu-block .role-head { margin-bottom: var(--sc-2); }
+
+/* ------------------------------------------------- Ronaldo and Kobe photos -- */
+.creed-photo { margin: 0 0 var(--sc-5); }
+.creed-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--sc-r-md); background: #eee; }
+.creed:first-child .creed-photo img { object-position: 50% 18%; }
+.creed:last-child .creed-photo img { object-position: 50% 30%; }
+.creed-photo figcaption { margin-top: var(--sc-2); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+.creed-photo figcaption a { color: inherit; }
