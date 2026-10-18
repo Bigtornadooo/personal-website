@@ -132,3 +132,7 @@
 .sc-display .pl { width: 3.3rem; height: 3.3rem; border-radius: 12px; }
 .sc-display .pl--wdi span { font-size: 1.2rem; }
 .sc-display .pl--ls b { font-size: 0.95rem; }
+/* Day in a Life: its own wordmark, "Day in a" in white and "Life" in the app's green, on its dark header */
+.pl--dil { background: #000; grid-auto-rows: min-content; align-content: center; gap: 1px; }
+.pl--dil b { font-weight: 700; font-size: 0.5rem; letter-spacing: -0.01em; color: #ECEFED; white-space: nowrap; }
+.pl--dil b + b { font-size: 0.78rem; font-weight: 800; color: #6CCC93; }
