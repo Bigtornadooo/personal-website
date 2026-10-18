@@ -255,3 +255,11 @@ a { color: var(--sc-link); }
 .chapter-head { grid-template-columns: auto auto 1fr; }
 .chapter-head .note { justify-self: end; }
 @media (max-width: 700px) { .chapter-head { grid-template-columns: auto 1fr; } .chapter-head .note { grid-column: 1 / -1; justify-self: start; } }
+
+/* athlete photos: natural portrait shape, never wider than their pixels allow on a 2x screen (~700 px source) */
+.creed-photo img { width: 100%; max-width: 340px; height: auto !important; aspect-ratio: auto !important; object-fit: contain; }
+.creed-photo { max-width: 340px; }
+/* same height for both, so the text below lines up; widths follow each photo's shape */
+.creed-photo img { height: 380px !important; width: auto; max-width: 100%; }
+.creed-photo { max-width: none; }
+@media (max-width: 700px) { .creed-photo img { height: auto !important; width: 100%; max-width: 340px; } }
