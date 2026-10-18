@@ -250,3 +250,8 @@ a { color: var(--sc-link); }
 
 /* no brand mark in the nav: the links sit on the right on their own */
 .fp-nav { justify-content: flex-end; }
+
+/* number, title and side note on one row everywhere */
+.chapter-head { grid-template-columns: auto auto 1fr; }
+.chapter-head .note { justify-self: end; }
+@media (max-width: 700px) { .chapter-head { grid-template-columns: auto 1fr; } .chapter-head .note { grid-column: 1 / -1; justify-self: start; } }
