@@ -507,3 +507,11 @@ main { display: block; }
   .mod-fit { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .mod-toggle::before, .mod-toggle::after { transition: none; } }
+
+/* components listed with the reviewer's own score (no official weights) */
+.comp-head--plain { grid-template-columns: minmax(0, 1fr) auto; }
+.comp-score { font-family: var(--sc-font-display); font-weight: 700; font-size: 0.95rem; color: var(--fp-ink, var(--sc-ink)); text-align: right; }
+.comp-note--plain { margin-left: 0; }
+.mod-grade { display: inline-grid; place-items: center; min-width: 2.6rem; height: 2.2rem; padding: 0 0.5rem; margin-top: 0.35rem;
+  background: var(--fp-ink, #111318); color: #fff; font-family: var(--sc-font-display); font-weight: 700; font-size: 1rem;
+  box-shadow: 4px 4px 0 0 var(--sc-accent); }

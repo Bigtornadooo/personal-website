@@ -239,3 +239,6 @@ a { color: var(--sc-link); }
 .weight-bar { border-radius: 0; outline: 1.5px solid var(--fp-ink); }
 
 .film-poster { align-self: start; }
+
+/* the number box keeps its own width even when a note sits under it */
+.chapter-head .num { justify-self: start; }

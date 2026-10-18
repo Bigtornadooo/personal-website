@@ -58,9 +58,25 @@
   }
 
   // The breakdown: one bar split by weight, then each component with its note.
+  // Without weights (only the reviewer's own scores) it shows the list alone.
   function breakdown(components) {
+    var weighted = components.every(function (c) { return filled(c.weight) && Number(c.weight) > 0; });
     var wrap = el("div", "mod-breakdown");
-    wrap.appendChild(el("h4", "", "Where the marks go"));
+    wrap.appendChild(el("h4", "", weighted ? "Where the marks go" : "How it went"));
+    if (!weighted) {
+      var plain = el("ol", "weight-list weight-list--plain");
+      components.forEach(function (c) {
+        var li = el("li");
+        var head = el("div", "comp-head comp-head--plain");
+        head.appendChild(el("span", "comp-name", c.name));
+        if (filled(c.score)) head.appendChild(el("span", "comp-score", c.score));
+        li.appendChild(head);
+        if (filled(c.note)) li.appendChild(el("p", "comp-note comp-note--plain", c.note));
+        plain.appendChild(li);
+      });
+      wrap.appendChild(plain);
+      return wrap;
+    }
     var total = components.reduce(function (a, c) { return a + (Number(c.weight) || 0); }, 0) || 1;
     var bar = el("div", "weight-bar");
     bar.setAttribute("role", "img");
@@ -78,7 +94,7 @@
       var head = el("div", "comp-head");
       head.appendChild(el("span", "swatch " + tone));
       head.appendChild(el("span", "comp-name", c.name));
-      head.appendChild(el("span", "comp-w", c.weight + "%"));
+      head.appendChild(el("span", "comp-w", c.weight + "%" + (filled(c.score) ? ", " + c.score : "")));
       li.appendChild(head);
       if (filled(c.note)) li.appendChild(el("p", "comp-note", c.note));
       list.appendChild(li);
@@ -102,7 +118,13 @@
     mid.appendChild(el("span", "mod-title", r.title || ""));
     if (filled(r.verdict)) mid.appendChild(el("span", "mod-verdict", r.verdict));
     sum.appendChild(mid);
-    sum.appendChild(ratingsBlock(r));
+    var hasRatings = r.ratings && RATINGS.some(function (pair) { return filled(r.ratings[pair[0]]); });
+    if (hasRatings) sum.appendChild(ratingsBlock(r));
+    else if (filled(r.grade)) {
+      var g = el("span", "mod-grade", r.grade);
+      g.setAttribute("aria-label", "Final grade " + r.grade);
+      sum.appendChild(g);
+    } else sum.appendChild(el("span"));
     sum.appendChild(el("span", "mod-toggle"));
     item.appendChild(sum);
 
