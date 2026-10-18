@@ -94,7 +94,7 @@ main { margin-left: 0 !important; }
 /* the framed portrait, zigzag and brush strokes */
 .fp-art { position: relative; justify-self: end; width: min(100%, 31rem); }
 .fp-photo { position: relative; z-index: 2; margin: 0; aspect-ratio: 4 / 5; box-shadow: 14px 14px 0 0 var(--fp-ink); background: #E9ECEF; }
-.fp-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; display: block; }
+.fp-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
 .fp-zigzag { position: absolute; z-index: 3; left: -5.5rem; top: 3.5rem; width: 7rem; }
 .fp-stroke { position: absolute; z-index: 1; background: var(--fp-blue); border-radius: 999px; transform-origin: center; }
 /* rotated about their left end, so each rises to the right behind the photo and runs off the page */
@@ -242,3 +242,8 @@ a { color: var(--sc-link); }
 
 /* the number box keeps its own width even when a note sits under it */
 .chapter-head .num { justify-self: start; }
+
+/* reviews page: the nav only, no hero */
+.fp--sub { border-bottom: 1.5px solid var(--fp-line); padding-bottom: 1.5rem; }
+.page-reviews .chapter--mods { padding-top: clamp(3rem, 8vh, 5rem); }
+.page-reviews .chapter-head { grid-template-columns: 1fr auto; }

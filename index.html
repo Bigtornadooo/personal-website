@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="scrollcraft.css?v=20261018c">
-<link rel="stylesheet" href="site.css?v=20261018f">
-<link rel="stylesheet" href="front.css?v=20261018f">
+<link rel="stylesheet" href="site.css?v=20261018g">
+<link rel="stylesheet" href="front.css?v=20261018g">
 </head>
 <body>
 
@@ -31,7 +31,7 @@
       <li><a href="#front" aria-current="page">Home</a></li>
       <li><a href="#livesync">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li data-mods-link><a href="#mods">Reviews</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
       <li><a href="#close">Contact</a></li>
     </ul>
   </nav>
@@ -78,7 +78,7 @@
       <span class="fp-stroke fp-stroke--a" aria-hidden="true"></span>
       <span class="fp-stroke fp-stroke--b" aria-hidden="true"></span>
       <figure class="fp-photo">
-        <img src="assets/portrait.jpg" width="1080" height="1430" alt="Da Feng at Griffith Observatory at sunset, backpack on, leaning against a railing">
+        <img src="assets/portrait-lights.jpg?v=20261018g" width="1270" height="1304" alt="Da Feng smiling in a room of hanging glass lights reflected into the distance">
       </figure>
     </div>
   </div>
@@ -260,15 +260,6 @@
               <div><h3>Software Engineer</h3><div class="org">Raffles Hall Developers, part-time</div></div>
             </div>
             <p class="body">Built the Block Committee Management System (BCMS), a full-stack Next.js 16, TypeScript and Supabase platform on Vercel that is now the system of record for 44 events. Designed a 12-table PostgreSQL schema with 35 row-level-security policies and a custom JWT access-token hook for database-level, role-based access control, and an idempotent notification pipeline (Vercel Cron, Telegram Bot API) with append-only log deduplication: 47 alerts delivered over six weeks with zero duplicates.</p>
-            <div class="ledger" data-sc-reveal="up" data-sc-reveal-at="0.05 0.35">
-              <div class="ledger-head">BCMS, in numbers</div>
-              <div class="ledger-grid">
-                <div class="ledger-stat"><div class="n" data-sc-count="0 12" data-sc-count-ms="1200">0</div><div class="k">Postgres tables</div></div>
-                <div class="ledger-stat"><div class="n" data-sc-count="0 35" data-sc-count-ms="1400">0</div><div class="k">row-level-security policies</div></div>
-                <div class="ledger-stat"><div class="n" data-sc-count="0 44" data-sc-count-ms="1600">0</div><div class="k">events of record</div></div>
-                <div class="ledger-stat"><div class="n" data-sc-count="0 47" data-sc-count-ms="1600">0</div><div class="k">alerts in six weeks, zero duplicates</div></div>
-              </div>
-            </div>
           </div>
         </article>
 
@@ -408,7 +399,7 @@
       </div>
 
       <div class="film" id="boyhood">
-        <figure class="film-poster" data-sc-reveal="up" data-sc-reveal-at="0.05 0.35">
+        <figure class="film-poster">
           <img src="assets/boyhood.png" width="250" height="370"
                alt="Theatrical poster for Boyhood (2014), directed by Richard Linklater">
           <figcaption>Boyhood, 2014</figcaption>
@@ -424,21 +415,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 05 · BIGTORNADO REVIEWS MODS. Rows are rendered by mods.js from
-       assets/mod-reviews.js; with no reviews the whole chapter is removed. -->
-  <section id="mods" class="chapter chapter--mods" data-sc-act="flow">
-    <div class="sc-wrap">
-      <div class="chapter-head">
-        <span class="num">05</span>
-        <h2 class="sc-display sc-display--md" id="mods-mark">Bigtornado reviews mods</h2>
-        <span class="note mod-count"></span>
-      </div>
-      <p class="mods-thesis" data-sc-in>Honest notes on the modules I have taken, written for juniors deciding what to take: what each one asks of you, where the marks actually go, and whether I would take it again.</p>
-      <div class="mod-list"></div>
-      <p class="footnote mods-foot">One person&rsquo;s experience in one semester. Lecturers, formats and weightings change, so check the latest syllabus on NUSMods before you plan around it.</p>
     </div>
   </section>
 
@@ -474,11 +450,8 @@
 
 </main>
 
-<script src="assets/mod-reviews.js?v=20261018f"></script>
-<script src="mods.js?v=20261018f"></script>
 <script src="scrollcraft.js?v=20261018c"></script>
 <script>ScrollCraft.mount(document.body);</script>
 <script src="site.js?v=20261018c"></script>
-<script src="front.js?v=20261018c"></script>
 </body>
 </html>
