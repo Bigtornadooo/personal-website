@@ -161,6 +161,42 @@ window.MOD_REVIEWS = [
       }
     ],
     "updated": "2026-10-18"
+  },
+  {
+    "code": "IS2218",
+    "title": "Digital Platforms for Business",
+    "taken": "AY2025/26 Sem 1",
+    "mcs": 4,
+    "grade": "B+",
+    "verdict": "An eye opener for how the unstructured learning of university can haunt you.",
+    "review": [
+      "This mod was an eye opener for me, as I found out how the unstructured learning of university could haunt somebody. Coming in, the practices the Professor gave us made me think this would be an easy module lmaoooo. However, I found out the hard way during midterms that most people taking this mod have already taken ACC1701, a more in-depth accounting course from the business school itself. I was severely underprepared and found myself shitting the bed when I opened the first question of the midterms LOLLL.",
+      "Luckily my finals were slightly above median, which helped me recover to a B+. Be prepared that the practices will not tally with the actual paper. The grading distribution is also a bit weird: my friend who got 9 and 12 got a B, and my friend who got 12 and 16 got an A-.",
+      "The whole course is basically out of 40 marks, split into two 1 hr Examplify papers, sprinkled with a few assignments here and there, and recorded lectures with no tutorials. Great for freeing up your timetable."
+    ],
+    "components": [
+      {
+        "name": "Midterm",
+        "score": "9 / 20",
+        "note": "Median 12, if I remember right."
+      },
+      {
+        "name": "Finals",
+        "score": "13 / 20",
+        "note": "Median 11, if I remember right."
+      },
+      {
+        "name": "Assignments",
+        "score": "Full marks",
+        "note": "Should all be full marks."
+      }
+    ],
+    "tips": [
+      "Most people taking this mod have already done ACC1701. If you haven't, prepare beyond the given practices.",
+      "The practices will not tally with the actual paper.",
+      "It's two 1 hr Examplify papers out of 40 marks, recorded lectures and no tutorials, so it frees up your timetable."
+    ],
+    "updated": "2026-10-18"
   }
 ];
 
