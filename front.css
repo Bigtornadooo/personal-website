@@ -144,3 +144,98 @@ main { margin-left: 0 !important; }
 .creed:last-child .creed-photo img { object-position: 50% 30%; }
 .creed-photo figcaption { margin-top: var(--sc-2); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
 .creed-photo figcaption a { color: inherit; }
+
+/* ===========================================================================
+   Everything after the intro, restyled to match it: Urbanist headings at 700,
+   Karla grey body copy, no typewriter labels, square boxes with black outlines
+   and hard offset shadows (black for pictures, blue for cards), pill tags.
+   ========================================================================== */
+:root { --sc-font-mono: var(--sc-font-display); --fp-grey: #6A6F78; --fp-line: #E3E6EA; }
+
+/* headings */
+.sc-display, .chapter-head h2, .colophon h2, .rail-lead h3 {
+  font-family: var(--sc-font-display); font-weight: 700; color: var(--fp-ink); letter-spacing: -0.02em; }
+.sc-display--md { font-size: clamp(2.2rem, 1.2rem + 2.6vw, 3.8rem); line-height: 1.1; }
+h3, .role h3, .proj-card h3, .creed h3, .edu-block h3, .demo-stage h3, .film-body h3 {
+  font-family: var(--sc-font-display); font-weight: 700; color: var(--fp-ink); letter-spacing: -0.01em; }
+
+/* body copy in the intro's Karla grey */
+.role p.body, .proj-card p.body, .creed p, .edu-block p, .demo-stage p, .demo-intro p.body,
+.colophon p, .film-body p, .rail-lead p, .mod-p, .footnote { color: var(--fp-grey); font-family: var(--sc-font-text); }
+.creed-thesis, .mods-thesis { font-family: var(--sc-font-text); color: var(--fp-ink); }
+a { color: var(--sc-link); }
+
+/* labels: Urbanist, sentence case, no letter-spaced capitals */
+.kicker, .chapter-head .note, .demo-stage .stage-k, .ledger-head, .spec-row dt, .creed .role-line,
+.film-poster figcaption, .film-tags span, .foot-print, .close-links, .role .when, .proj-card .idx,
+.mod-meta dt, .mod-meta dd, .mod-code, .comp-w, .weight-bar .seg, .fact-strip .fact-v {
+  font-family: var(--sc-font-display); text-transform: none; letter-spacing: 0; }
+.kicker, .demo-stage .stage-k, .creed .role-line, .role .when, .proj-card .idx, .ledger-head {
+  font-weight: 700; font-size: 0.95rem; }
+.kicker, .demo-stage .stage-k, .proj-card .idx { color: var(--fp-blue); }
+.creed .role-line, .role .when { color: var(--fp-ink); }
+.spec-row dt { font-weight: 700; color: var(--fp-ink); font-size: 0.95rem; }
+
+/* section number: the black box with a blue offset, same as the "Get in touch" button */
+.chapter-head { align-items: center; }
+.chapter-head .num {
+  display: inline-grid; place-items: center; min-width: 3.3rem; height: 3.3rem; padding: 0 0.7rem;
+  background: var(--fp-ink); color: #fff; font-family: var(--sc-font-display); font-weight: 700; font-size: 1.25rem;
+  box-shadow: 6px 6px 0 0 var(--fp-blue); outline: 1.5px solid var(--fp-ink); line-height: 1; }
+/* side note: the intro's selected-text frame */
+.chapter-head .note {
+  position: relative; padding: 0.45rem 0.9rem; border: 1.5px solid var(--fp-ink); color: var(--fp-ink);
+  font-weight: 600; font-size: 0.95rem; align-self: center; }
+.chapter-head .note::before, .chapter-head .note::after {
+  content: ""; position: absolute; width: 8px; height: 8px; background: var(--fp-blue); border: 1.5px solid var(--fp-ink); }
+.chapter-head .note::before { left: -5px; top: -5px; }
+.chapter-head .note::after { right: -5px; bottom: -5px; }
+.chapter-head .note:empty { display: none; }
+
+/* cards: square, black outline, blue offset */
+.proj-card, .ledger, .demo-intro .fact-strip {
+  border: 1.5px solid var(--fp-ink); border-radius: 0; box-shadow: 8px 8px 0 0 var(--fp-blue); background: #fff; }
+.proj-card h3 { font-size: 1.5rem; }
+.proj-card p.body { font-size: 1rem; line-height: 1.6; }
+.ledger-head::before { border-radius: 0; }
+.ledger-stat { border-left: 1.5px solid var(--fp-line); }
+.ledger-stat .n, .demo-stage .stat .n { font-family: var(--sc-font-display); font-weight: 700; }
+
+/* pictures: square, black outline, black offset (like the portrait) */
+.demo-stage .stage-shot, .film-poster, .creed-photo img {
+  border: 1.5px solid var(--fp-ink); border-radius: 0; box-shadow: 10px 10px 0 0 var(--fp-ink); }
+.creed-photo { margin-bottom: calc(var(--sc-5) + 10px); }
+.creed-photo figcaption { margin-top: calc(var(--sc-2) + 12px); }
+.film-poster { overflow: visible; }
+
+/* tags: pill outlines like the social icons */
+.tag, .film-tags span {
+  display: inline-flex; align-items: center; border: 1.5px solid #D5D8DD !important; border-radius: 999px !important;
+  padding: 0.3rem 0.85rem !important; font-family: var(--sc-font-display) !important; font-weight: 600; font-size: 0.85rem !important;
+  color: var(--fp-ink) !important; background: #fff; }
+
+/* rows and dividers */
+.role { border-top: 1.5px solid var(--fp-line); }
+.role:first-of-type { border-top: 1.5px solid var(--fp-ink); }
+.role--peak { border-top: 2px solid var(--fp-blue); }
+.role--peak .org { color: var(--fp-blue); }
+.role-logo { border: 1.5px solid var(--fp-line); }
+.creed { border-top: 0; padding-top: 0; }
+.creed blockquote { border-left: 4px solid var(--fp-blue); font-style: normal; font-family: var(--sc-font-display);
+  font-weight: 600; font-size: 1.15rem; color: var(--fp-ink); }
+.spec-row { border-top: 1.5px solid var(--fp-line); }
+
+/* livesync timeline in the intro's blue */
+.demo-stage::before { border-width: 2px; }
+
+/* closing section */
+.colophon { max-width: 52rem; }
+.close-ctas { margin-top: 2rem; }
+.close-links { border-top: 1.5px solid var(--fp-line); font-size: 1rem; }
+.close-links a { color: var(--fp-ink); }
+
+/* mod reviews follow the same language */
+.mod:first-child { border-top: 1.5px solid var(--fp-ink); }
+.weight-bar { border-radius: 0; outline: 1.5px solid var(--fp-ink); }
+
+.film-poster { align-self: start; }
