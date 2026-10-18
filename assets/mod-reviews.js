@@ -141,7 +141,7 @@ window.MOD_REVIEWS = [
   },
   {
     "code": "IS1108",
-    "title": "Digital Ethics and Data Privacy",
+    "title": "Digital and AI Ethics",
     "mcs": 4,
     "grade": "A-",
     "verdict": "Terrible mod all around, the epitome of formal education: a prerequisite you clear just to get a degree.",

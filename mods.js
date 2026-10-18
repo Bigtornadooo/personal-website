@@ -166,6 +166,17 @@
 
   var list = section.querySelector(".mod-list");
   reviews.forEach(function (r, i) { list.appendChild(renderReview(r, i)); });
+
+  // reviews.html#mod-ma1522 (from the cards on the main page): open that review and go to it.
+  function openFromHash() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var target = id && document.getElementById(id);
+    if (!target || !target.classList.contains("mod")) return;
+    list.querySelectorAll(".mod").forEach(function (m) { m.open = m === target; m.classList.toggle("is-target", m === target); });
+    requestAnimationFrame(function () { target.scrollIntoView({ block: "start" }); });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
   section.querySelector(".mod-count").textContent =
     reviews.length === 1 ? "1 module reviewed" : reviews.length + " modules reviewed";
 })();
