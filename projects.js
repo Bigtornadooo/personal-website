@@ -26,6 +26,7 @@
   var mqNarrow = matchMedia("(max-width: 767px)");
 
   var top = 0, maxX = 0, pinned = false, ticking = false, lastX = null;
+  var restoringFocus = false; // focus moved back by closeDetail, not by the user tabbing
 
   function measure() {
     pinned = !mqReduce.matches && !mqNarrow.matches;
@@ -79,13 +80,13 @@
 
   // Keyboard: tabbing to a card that is off to the side scrolls the page so the card slides into view.
   track.addEventListener("focusin", function (e) {
-    if (!pinned) return;
+    if (!pinned || restoringFocus) return;
     var card = e.target.closest(".pr-card");
     if (!card) return;
     var pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     var x = Math.min(maxX, Math.max(0, card.offsetLeft - pad));
     var y = top + x;
-    if (Math.abs(window.scrollY - y) > 2) window.scrollTo({ top: y, behavior: "auto" });
+    if (Math.abs(window.scrollY - y) > 2) window.scrollTo({ top: y, behavior: "instant" });
   });
 
   /* ------------------------------------------------------- detail panels */
@@ -123,8 +124,10 @@
     o.panel.hidden = true;
     o.button.setAttribute("aria-expanded", "false");
     if (restore !== false) {
-      window.scrollTo({ top: o.y, behavior: "auto" });
+      window.scrollTo({ top: o.y, behavior: "instant" }); // the site sets scroll-behavior: smooth, so "auto" would animate
+      restoringFocus = true;
       o.button.focus({ preventScroll: true });
+      restoringFocus = false;
     }
   }
 

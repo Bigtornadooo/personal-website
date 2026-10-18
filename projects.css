@@ -44,7 +44,8 @@
 .pr--free .pr-viewport { overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; padding-bottom: 0.5rem; }
 .pr--free .pr-track { transform: none !important; }
 .pr--free .pr-card { scroll-snap-align: start; max-height: none; }
-.pr--free .pr-track { scroll-padding-inline: var(--pad); }
+/* snap points respect the page margin (scroll-padding belongs on the scrolling element) */
+.pr--free .pr-viewport { scroll-padding-inline: max(clamp(1rem, 5vw, 6rem), calc((100vw - 1280px) / 2 + clamp(1rem, 5vw, 6rem))); }
 @media (max-width: 767px) {
   .pr-head { padding-top: 3.5rem; }
   .pr-track { gap: 1.25rem; padding-bottom: 2.5rem; }
@@ -110,3 +111,8 @@
   .claim-gif { box-shadow: 6px 6px 0 0 var(--fp-ink); }
 }
 @media (prefers-reduced-motion: reduce) { .pr-back { transition: none; } }
+
+/* number, title and hint on one row (the hint must not widen the number box) */
+.pr-head .chapter-head { grid-template-columns: auto auto 1fr; }
+.pr-head .chapter-head .note { justify-self: end; }
+@media (max-width: 767px) { .pr-head .chapter-head { grid-template-columns: auto 1fr; } .pr-head .chapter-head .note { grid-column: 1 / -1; justify-self: start; } }
