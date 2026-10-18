@@ -116,3 +116,19 @@
 .pr-head .chapter-head { grid-template-columns: auto auto 1fr; }
 .pr-head .chapter-head .note { justify-self: end; }
 @media (max-width: 767px) { .pr-head .chapter-head { grid-template-columns: auto 1fr; } .pr-head .chapter-head .note { grid-column: 1 / -1; justify-self: start; } }
+
+/* project logos next to the names: drawn in CSS so they are sharp at any size */
+.pl-name { display: flex; align-items: center; gap: 0.6rem; }
+.pl { flex: none; display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 9px; font-family: var(--sc-font-display); line-height: 1; }
+/* WDI: the orange badge from the Claim! app */
+.pl--wdi { position: relative; background: #E87722; }
+.pl--wdi span { color: #fff; font-weight: 800; font-style: italic; font-size: 0.86rem; letter-spacing: -0.03em; transform: skewX(-4deg) translateY(-1px); }
+.pl--wdi::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: 22%; height: 2px; border-radius: 2px; background: #FFD9B5; transform: skewX(-30deg); }
+/* Live-Sync: "Live" in ink, "Sync" in its green, as in the pitch deck */
+.pl--ls { background: #fff; border: 1.5px solid #E2E4E8; grid-auto-rows: min-content; align-content: center; gap: 1px; }
+.pl--ls b { font-weight: 800; font-size: 0.68rem; letter-spacing: -0.02em; color: #17181A; }
+.pl--ls b + b { color: #10B981; }
+/* bigger on the detail headings */
+.sc-display .pl { width: 3.3rem; height: 3.3rem; border-radius: 12px; }
+.sc-display .pl--wdi span { font-size: 1.2rem; }
+.sc-display .pl--ls b { font-size: 0.95rem; }
