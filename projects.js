@@ -26,6 +26,10 @@
   var mqNarrow = matchMedia("(max-width: 767px)");
 
   var top = 0, maxX = 0, pinned = false, ticking = false, lastX = null;
+  var pin = section.querySelector(".pr-pin");
+  var hopper = section.querySelector(".pr-hopper");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".pr-card"));
+  var spots = [], cardTop = 0, hopW = 0, hopH = 0; // card centres (track coords) and the card top (pin coords)
   var restoringFocus = false; // focus moved back by closeDetail, not by the user tabbing
 
   function measure() {
@@ -39,6 +43,11 @@
       return;
     }
     maxX = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    if (hopper) {
+      spots = cards.map(function (c) { return c.offsetLeft + c.offsetWidth / 2; });
+      cardTop = cards[0].getBoundingClientRect().top - pin.getBoundingClientRect().top;
+      hopW = hopper.offsetWidth; hopH = hopper.offsetHeight;
+    }
     section.style.height = (maxX + window.innerHeight) + "px";
     top = section.getBoundingClientRect().top + window.scrollY;
     lastX = null;
@@ -55,7 +64,50 @@
       track.style.transform = "translate3d(" + (-x) + "px,0,0)";
       lastX = x;
     }
+    hop(maxX ? (window.scrollY - top) / maxX : 0, x);
   }
+
+  /* The Growtopia character hops from card to card, Pixar-lamp style: crouch,
+     stretch in the air, squash on landing. Pops in at the start, spins away at the end. */
+  var IN = 0.04, OUT = 0.95, HOP = 110;
+  function hop(raw, x) {
+    if (!hopper || !spots.length) return;
+    if (raw < 0 || raw > 1.02) { hopper.style.opacity = "0"; return; }
+    var n = spots.length;
+    var f = Math.min(1, Math.max(0, (raw - IN) / (OUT - IN))) * (n - 1);
+    var i = Math.min(n - 2, Math.floor(f)), t = f - i;
+    var cx = spots[i], y = 0, sx = 1, sy = 1, rot = 0, s;
+    if (t < 0.2) {                     // crouch before the jump
+      s = Math.sin((t / 0.2) * Math.PI) * 0.22; sy = 1 - s; sx = 1 + s * 0.6;
+    } else if (t < 0.8) {              // in the air
+      var u = (t - 0.2) / 0.6;
+      cx = spots[i] + (spots[i + 1] - spots[i]) * u;
+      y = -HOP * 4 * u * (1 - u);
+      s = Math.sin(u * Math.PI); sy = 1 + 0.12 * s; sx = 1 - 0.07 * s;
+      rot = 10 - 18 * u;
+    } else {                           // land and squash
+      cx = spots[i + 1];
+      s = Math.sin(((t - 0.8) / 0.2) * Math.PI) * 0.25; sy = 1 - s; sx = 1 + s * 0.6;
+    }
+    var scale = 1, op = 1, spin = 0;
+    if (raw < IN) {                    // pop in
+      var a = Math.max(0, raw / IN); scale = a < 0.7 ? a / 0.7 * 1.15 : 1.15 - (a - 0.7) / 0.3 * 0.15; op = Math.min(1, a * 3);
+    } else if (raw > OUT) {            // whirl away like a tornado
+      var b = Math.min(1, (raw - OUT) / (1 - OUT)); scale = 1 - b; op = 1 - b; spin = b * 720; y -= b * 60;
+    }
+    var left = cx - x - hopW / 2, topY = cardTop - hopH + y;
+    hopper.style.opacity = String(op);
+    hopper.style.transform = "translate3d(" + left.toFixed(1) + "px," + topY.toFixed(1) + "px,0) rotate(" + (rot + spin).toFixed(1) +
+      "deg) scale(" + (sx * scale).toFixed(3) + "," + (sy * scale).toFixed(3) + ")";
+  }
+
+  // The username section's character pops in when it scrolls into view.
+  var why = document.getElementById("why");
+  if (why && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (es, obs) {
+      if (es[0].isIntersecting) { why.classList.add("is-in"); obs.disconnect(); }
+    }, { threshold: 0.35 }).observe(why);
+  } else if (why) why.classList.add("is-in");
 
   window.addEventListener("scroll", function () {
     if (ticking) return;

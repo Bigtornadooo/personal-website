@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="scrollcraft.css?v=20261018c">
 <link rel="stylesheet" href="site.css?v=20261018g">
 <link rel="stylesheet" href="front.css?v=20261018q">
-<link rel="stylesheet" href="projects.css?v=20261018k">
+<link rel="stylesheet" href="projects.css?v=20261018r">
 </head>
 <body>
 
@@ -95,11 +95,31 @@
 
 <main id="top">
 
+  <!-- WHY BIGTORNADO: the username story. The Growtopia character pops in here,
+       then hops across the project cards (projects.js) and vanishes at the end. -->
+  <section id="why" class="why" aria-labelledby="why-mark">
+    <div class="sc-wrap why-grid">
+      <div class="why-copy">
+        <p class="kicker section-tag">Why the username?</p>
+        <h2 class="sc-display sc-display--md" id="why-mark">Why Bigtornado?</h2>
+        <p>My Chinese name is Da Feng (大风), which means <b>big wind</b>.</p>
+        <p>So when I started playing Growtopia and needed a username, a big wind became a <b>Bigtornado</b>. The name has stuck with me ever since.</p>
+        <p class="why-joke">Same wind, more spin.</p>
+      </div>
+      <div class="why-stage" aria-hidden="true">
+        <div class="why-bubble">Hi, I&rsquo;m Bigtornado!</div>
+        <img class="why-char" src="assets/bigtornado.png?v=20261018r" width="333" height="454" alt="">
+        <div class="why-ground"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 01 · PROJECTS: a pinned horizontal rail of five cards (projects.js maps
        vertical scroll to horizontal movement). Live-Sync and Claim! open a
        detail panel below the rail; the other three are plain cards. -->
   <section id="projects" class="pr" aria-labelledby="projects-mark">
     <div class="pr-pin">
+      <img class="pr-hopper" src="assets/bigtornado.png?v=20261018r" width="333" height="454" alt="" aria-hidden="true">
       <div class="pr-head">
         <p class="kicker section-tag">Here's what I've built</p>
         <div class="chapter-head">
@@ -506,6 +526,6 @@
 <script src="scrollcraft.js?v=20261018c"></script>
 <script>ScrollCraft.mount(document.body);</script>
 <script src="site.js?v=20261018c"></script>
-<script src="projects.js?v=20261018h"></script>
+<script src="projects.js?v=20261018r"></script>
 </body>
 </html>
