@@ -64,41 +64,70 @@
       track.style.transform = "translate3d(" + (-x) + "px,0,0)";
       lastX = x;
     }
-    hop(maxX ? (window.scrollY - top) / maxX : 0, x);
+    hop(maxX ? (window.scrollY - top) / maxX : 0);
   }
 
   /* The Growtopia character hops from card to card, Pixar-lamp style: crouch,
-     stretch in the air, squash on landing. Pops in at the start, spins away at the end. */
-  var IN = 0.04, OUT = 0.95, HOP = 110;
-  function hop(raw, x) {
-    if (!hopper || !spots.length) return;
-    if (raw < 0 || raw > 1.02) { hopper.style.opacity = "0"; return; }
-    var n = spots.length;
-    var f = Math.min(1, Math.max(0, (raw - IN) / (OUT - IN))) * (n - 1);
-    var i = Math.min(n - 2, Math.floor(f)), t = f - i;
-    var cx = spots[i], y = 0, sx = 1, sy = 1, rot = 0, s;
-    if (t < 0.2) {                     // crouch before the jump
-      s = Math.sin((t / 0.2) * Math.PI) * 0.22; sy = 1 - s; sx = 1 + s * 0.6;
-    } else if (t < 0.8) {              // in the air
-      var u = (t - 0.2) / 0.6;
-      cx = spots[i] + (spots[i + 1] - spots[i]) * u;
-      y = -HOP * 4 * u * (1 - u);
-      s = Math.sin(u * Math.PI); sy = 1 + 0.12 * s; sx = 1 - 0.07 * s;
-      rot = 10 - 18 * u;
-    } else {                           // land and squash
-      cx = spots[i + 1];
-      s = Math.sin(((t - 0.8) / 0.2) * Math.PI) * 0.25; sy = 1 - s; sx = 1 + s * 0.6;
+     stretch in the air, squash on landing. Scrolling only decides WHICH card he
+     should stand on; each hop is a short timed animation, so he always lands,
+     even if the scrolling stops halfway. Pops in at the start, whirls away at the end. */
+  var IN = 0.03, OUT = 0.95, HOP = 110, HOP_MS = 560, POP_MS = 380, AWAY_MS = 520;
+  var cur = 0, jump = null, vis = 0, visAnim = null, looping = false, lastRaw = -1;
+
+  function hop(raw) { // called from update(): just remember where the scroll is and make sure we animate
+    lastRaw = raw;
+    if (!looping) { looping = true; requestAnimationFrame(frame); }
+  }
+
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+
+  function frame(now) {
+    if (!hopper || !spots.length || !pinned) { looping = false; return; }
+    var raw = lastRaw, n = spots.length;
+    var want = raw >= 0 && raw <= OUT;                       // should he be on screen?
+    var target = Math.round(Math.min(1, Math.max(0, (raw - IN) / (OUT - IN))) * (n - 1));
+
+    // appear / disappear are timed too
+    if (want && vis === 0 && !visAnim) { cur = target; jump = null; visAnim = { dir: 1, t0: now }; }
+    if (!want && vis === 1 && !visAnim) { visAnim = { dir: -1, t0: now }; }
+    var scale = vis, op = vis, spin = 0, lift = 0;
+    if (visAnim) {
+      var d = visAnim.dir > 0 ? POP_MS : AWAY_MS;
+      var a = Math.min(1, (now - visAnim.t0) / d);
+      if (visAnim.dir > 0) { scale = a < 0.7 ? a / 0.7 * 1.15 : 1.15 - (a - 0.7) / 0.3 * 0.15; op = Math.min(1, a * 3); }
+      else { scale = 1 - a; op = 1 - a; spin = a * 720; lift = -a * 60; }
+      if (a >= 1) { vis = visAnim.dir > 0 ? 1 : 0; visAnim = null; }
     }
-    var scale = 1, op = 1, spin = 0;
-    if (raw < IN) {                    // pop in
-      var a = Math.max(0, raw / IN); scale = a < 0.7 ? a / 0.7 * 1.15 : 1.15 - (a - 0.7) / 0.3 * 0.15; op = Math.min(1, a * 3);
-    } else if (raw > OUT) {            // whirl away like a tornado
-      var b = Math.min(1, (raw - OUT) / (1 - OUT)); scale = 1 - b; op = 1 - b; spin = b * 720; y -= b * 60;
+
+    // start the next hop (one card at a time, so fast scrolls become a quick series of hops)
+    if (vis === 1 && !jump && target !== cur) {
+      jump = { from: cur, to: cur + (target > cur ? 1 : -1), t0: now };
     }
-    var left = cx - x - hopW / 2, topY = cardTop - hopH + y;
+    var cx = spots[cur], y = 0, sx = 1, sy = 1, rot = 0, s;
+    if (jump) {
+      var t = Math.min(1, (now - jump.t0) / HOP_MS), dir = jump.to > jump.from ? 1 : -1;
+      var A = spots[jump.from], B = spots[jump.to];
+      if (t < 0.2) {                       // crouch
+        cx = A; s = Math.sin((t / 0.2) * Math.PI) * 0.22; sy = 1 - s; sx = 1 + s * 0.6;
+      } else if (t < 0.8) {                // in the air
+        var u = ease((t - 0.2) / 0.6);
+        cx = A + (B - A) * u; y = -HOP * 4 * u * (1 - u);
+        s = Math.sin(u * Math.PI); sy = 1 + 0.12 * s; sx = 1 - 0.07 * s; rot = dir * (10 - 18 * u);
+      } else {                             // land and squash
+        cx = B; s = Math.sin(((t - 0.8) / 0.2) * Math.PI) * 0.25; sy = 1 - s; sx = 1 + s * 0.6;
+      }
+      if (t >= 1) { cur = jump.to; jump = null; }
+    }
+
+    var x = lastX || 0;                    // the cards' current slide offset
+    var left = cx - x - hopW / 2, topY = cardTop - hopH + y + lift;
     hopper.style.opacity = String(op);
     hopper.style.transform = "translate3d(" + left.toFixed(1) + "px," + topY.toFixed(1) + "px,0) rotate(" + (rot + spin).toFixed(1) +
       "deg) scale(" + (sx * scale).toFixed(3) + "," + (sy * scale).toFixed(3) + ")";
+
+    // keep animating while something is moving; otherwise wait for the next scroll
+    if (jump || visAnim || (vis === 1 && target !== cur)) requestAnimationFrame(frame);
+    else looping = false;
   }
 
   // The username section's character pops in when it scrolls into view.

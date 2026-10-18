@@ -18,7 +18,6 @@
 .pr-card {
   flex: 0 0 clamp(18rem, 28vw, 23rem); display: flex; flex-direction: column; background: #fff;
   border: 1.5px solid var(--fp-ink); box-shadow: 8px 8px 0 0 var(--fp-blue);
-  max-height: calc(100svh - 12rem);
 }
 .pr-cover { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1.5px solid var(--fp-ink); background: #E9ECEF; flex: none; }
 .pr-cover img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
@@ -175,3 +174,18 @@
 .pr-hopper { position: absolute; left: 0; top: 0; z-index: 6; height: 92px; width: auto; pointer-events: none;
   transform-origin: 50% 100%; opacity: 0; will-change: transform, opacity; }
 .pr--free .pr-hopper { display: none; }
+
+/* cards always fit the window: cover scales with the window height, description capped at 4 lines */
+.pr-cover { aspect-ratio: auto; height: clamp(7rem, 24vh, 14.5rem); }
+.pr-body p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-height: 700px) {
+  .pr-head { padding-top: 1rem; }
+  .pr-head .chapter-head { margin-bottom: 0.75rem; }
+  .pr-body { padding: 0.9rem 1.1rem 1.1rem; gap: 0.3rem; }
+  .pr-body h3 { font-size: 1.3rem; }
+  .pr-body p { -webkit-line-clamp: 3; font-size: 0.92rem; }
+  .pr-body .tag { padding: 0.2rem 0.65rem !important; font-size: 0.78rem !important; }
+  .pr-body .pr-open { padding: 0.6rem 1rem; font-size: 0.92rem; }
+}
+.pr--free .pr-cover { height: auto; aspect-ratio: 16 / 10; }
+.pr--free .pr-body p { -webkit-line-clamp: unset; display: block; }
