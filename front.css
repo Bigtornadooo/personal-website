@@ -309,3 +309,20 @@ a { color: var(--sc-link); }
 .page-reviews .mod-body { padding: 1.75rem 0.25rem 2rem; }
 .page-reviews .mod:target .mod-summary, .page-reviews .mod.is-target .mod-summary { outline: 3px solid var(--fp-blue); outline-offset: 3px; }
 @media (max-width: 860px) { .page-reviews .mod-summary { grid-template-columns: minmax(0, 1fr) 1.5rem; } }
+
+/* Telegram */
+.fp-social a.is-tg { color: #229ED9; }
+.fp-social a.is-tg:hover { border-color: #229ED9; color: #229ED9; }
+.tg-card {
+  display: flex; align-items: center; gap: 1rem; max-width: 40rem; margin: 2rem 0; padding: 1rem 1.25rem;
+  border: 1.5px solid var(--fp-ink); box-shadow: 6px 6px 0 0 #229ED9; background: #fff; text-decoration: none; color: var(--fp-ink);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.tg-card:hover { transform: translate(-1px, -1px); box-shadow: 8px 8px 0 0 #229ED9; }
+.tg-card:focus-visible { outline: 2px solid var(--fp-blue); outline-offset: 4px; }
+.tg-icon { flex: none; width: 3rem; height: 3rem; border-radius: 50%; background: #229ED9; color: #fff; display: grid; place-items: center; }
+.tg-icon svg { width: 1.5rem; height: 1.5rem; margin-left: -2px; }
+.tg-card b { display: block; font-family: var(--sc-font-display); font-weight: 700; font-size: 1.1rem; }
+.tg-card b + span { display: block; margin-top: 0.15rem; color: var(--fp-grey); font-family: var(--sc-font-text); font-size: 0.98rem; line-height: 1.45; }
+.page-reviews .tg-card { margin: 0 0 2.25rem; }
+@media (prefers-reduced-motion: reduce) { .tg-card { transition: none; } }
