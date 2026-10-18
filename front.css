@@ -263,3 +263,8 @@ a { color: var(--sc-link); }
 .creed-photo img { height: 380px !important; width: auto; max-width: 100%; }
 .creed-photo { max-width: none; }
 @media (max-width: 700px) { .creed-photo img { height: auto !important; width: 100%; max-width: 340px; } }
+
+/* education achievements as points */
+.edu-points { margin: 0; padding-left: 1.15rem; max-width: 46ch; color: var(--fp-grey); font-family: var(--sc-font-text); line-height: 1.55; }
+.edu-points li { margin-bottom: 0.35rem; }
+.edu-points li::marker { color: var(--fp-blue); }
