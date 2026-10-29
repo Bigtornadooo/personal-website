@@ -133,6 +133,7 @@ main { margin-left: 0 !important; }
 .role-head { display: flex; align-items: center; gap: 1rem; margin-bottom: var(--sc-3); }
 .role-head h3 { margin: 0 0 2px; }
 .role-head .org { margin-bottom: 0; }
+.role-head:last-child { margin-bottom: 0; }
 .role-logo { width: 56px; height: 56px; flex: none; object-fit: contain; border-radius: 12px;
   background: #fff; border: 1px solid var(--hairline); }
 .edu-block .role-head { margin-bottom: var(--sc-2); }
