@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="scrollcraft.css?v=20261018c">
 <link rel="stylesheet" href="site.css?v=20261018g">
 <link rel="stylesheet" href="front.css?v=20261029a">
-<link rel="stylesheet" href="projects.css?v=20261018s">
+<link rel="stylesheet" href="projects.css?v=20261031a">
 </head>
 <body>
 
@@ -114,8 +114,8 @@
     </div>
   </section>
 
-  <!-- 01 · PROJECTS: a pinned horizontal rail of five cards (projects.js maps
-       vertical scroll to horizontal movement). Live-Sync and Claim! open a
+  <!-- 01 · PROJECTS: a pinned horizontal rail of six cards (projects.js maps
+       vertical scroll to horizontal movement). Sky Huddle, Live-Sync and Claim! open a
        detail panel below the rail; the other three are plain cards. -->
   <section id="projects" class="pr" aria-labelledby="projects-mark">
     <div class="pr-pin">
@@ -130,6 +130,17 @@
       </div>
       <div class="pr-viewport">
         <ol class="pr-track">
+          <li class="pr-card" id="card-skyhuddle">
+            <div class="pr-cover"><img src="assets/skyhuddle-demo/cover.jpg?v=20261031b" alt="Sky Huddle: the logo, a boarding-pass bar for flight AA1344 Denver to Dallas, and the pixel-art airport where Ava, Pip, Gus and Coco negotiate" width="1920" height="1391" loading="lazy" decoding="async"></div>
+            <div class="pr-body">
+              <h3 class="pl-name"><img class="pl-logo" src="assets/skyhuddle-demo/logo.png?v=20261031a" alt="" width="240" height="206">Sky Huddle</h3>
+              <div class="org">Autonomous SG 2026, Airbus track, Oct 2026</div>
+              <p>Three Claude agents, a tower controller, a pilot and a ground crew lead, negotiate a fix for a real delayed flight. Plain code checks every plan; a human makes the call.</p>
+              <div class="tags"><span class="tag">Claude agents</span><span class="tag">Multi-agent negotiation</span><span class="tag">Safety checks in code</span><span class="tag">Streamlit</span></div>
+              <button class="fp-btn pr-open" type="button" data-detail="detail-skyhuddle" aria-controls="detail-skyhuddle" aria-expanded="false">View walkthrough <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </li>
+
           <li class="pr-card" id="card-claim">
             <div class="pr-cover"><img src="assets/claim-demo/cover.jpg?v=20261018d" alt="Claim! scoring a suspicious claim PDF, final risk score 0.43, Investigate" width="960" height="623" loading="lazy" decoding="async"></div>
             <div class="pr-body">
@@ -184,6 +195,83 @@
         </ol>
       </div>
     </div>
+  </section>
+
+  <!-- SKY HUDDLE DETAIL: a 7-stage walkthrough, same layout as Live-Sync. Hidden until "View walkthrough". -->
+  <section id="detail-skyhuddle" class="pr-detail chapter chapter--livesync" aria-labelledby="skyhuddle-mark" hidden>
+    <div class="sc-wrap pr-detail-bar"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
+    <div id="skyhuddle">
+    <div class="sc-wrap">
+      <p class="kicker section-tag">Here's what I've built</p>
+      <div class="chapter-head">
+        <span class="num">01</span>
+        <h2 class="sc-display sc-display--md pl-name" id="skyhuddle-mark"><img class="pl-logo" src="assets/skyhuddle-demo/logo.png?v=20261031a" alt="" width="240" height="206">Sky Huddle</h2>
+      </div>
+
+      <div class="demo-intro">
+        <div class="org">Autonomous SG 2026, Airbus track, Oct 2026</div>
+        <p class="body">When weather or a late aircraft disrupts an arrival, the tower, the pilot and the ramp each see only their own piece. Sky Huddle gives each of them a Claude agent with its own private view, lets them negotiate a landing slot, holding and gate in two rounds, and keeps the AI away from safety: plain code checks every plan and a human duty manager makes the final call.</p>
+        <div class="tags">
+          <span class="tag">Claude agents</span>
+          <span class="tag">Multi-agent negotiation</span>
+          <span class="tag">Safety checks in code</span>
+          <span class="tag">Streamlit</span>
+        </div>
+      </div>
+
+      <div class="demo" data-sc-in>
+        <div class="demo-line" aria-hidden="true"><div class="demo-line__fill"></div></div>
+
+        <div class="demo-stage" id="sh-flight">
+          <div class="stage-k">Stage 1</div>
+          <h3>A real delayed flight lands on the desk</h3>
+          <p>Type a flight number or open a saved run. Every disruption is a real row from the 2015 US flight-delay data, here AA1344 Denver to Dallas, 119 minutes late after weather and a late inbound aircraft.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/01-flight.jpg?v=20261031a" alt="Sky Huddle flight picker and boarding-pass bar for AA1344 Denver to Dallas, 119 minutes late" loading="lazy" width="1920" height="350"></figure>
+        </div>
+        <div class="demo-stage" id="sh-round1">
+          <div class="stage-k">Stage 2</div>
+          <h3>Three agents propose at once</h3>
+          <p>Ava in the tower, Pip in the cockpit and Gus on the ramp are three separate Claude calls, each with its own private view of the airport. In round 1 each names the plans it can live with and offers one concession: an earlier slot, extra holding within fuel, or moving a crew.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/02-round1.jpg?v=20261031a" alt="The pixel-art airport mid-negotiation: messages flying to Coco, the plan card showing C2 land 22:24 gate B7" loading="lazy" width="1715" height="1150"></figure>
+        </div>
+        <div class="demo-stage" id="sh-deal">
+          <div class="stage-k">Stage 3</div>
+          <h3>Coco freezes one plan, they vote</h3>
+          <p>Coco, the coordinator, is plain code, not AI. It applies the concessions, re-runs eight hard safety checks and freezes the cheapest plan all three accept. In round 2 they vote. Here all three accept C2: land 22:24 at gate B7, and the duty manager approves it on the right.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/03-deal.jpg?v=20261031a" alt="The replay ends with a Deal! stamp and the approved plan C2 on the duty manager desk" loading="lazy" width="1920" height="869"></figure>
+        </div>
+        <div class="demo-stage" id="sh-brain">
+          <div class="stage-k">Stage 4</div>
+          <h3>Open any agent's brain</h3>
+          <p>Each agent has its own page: the checks it owns, every option scored against them, its reasoning step by step and the exact messages it sent.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/04-ava.jpg?v=20261031a" alt="Ava's page: her option inventory with plans that break her checks in dark, and her thought stream" loading="lazy" width="1920" height="1058"></figure>
+        </div>
+        <div class="demo-stage" id="sh-record">
+          <div class="stage-k">Stage 5</div>
+          <h3>Every message on the record</h3>
+          <p>The huddle view replays the negotiation message by message, with each candidate plan and every safety check behind the final decision.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/05-huddle.jpg?v=20261031a" alt="The huddle view with the replay, the consensus log of every message, and the candidate plans strip" loading="lazy" width="1920" height="1023"></figure>
+        </div>
+        <div class="demo-stage" id="sh-escalate">
+          <div class="stage-k">Stage 6</div>
+          <h3>When nothing is safe, help the human</h3>
+          <p>If no plan passes every check, the run escalates instead of guessing. Coco ranks the closest plans, names the blocker and searches costlier fixes. For WN407 the gate is occupied in all six plans, so it finds a safe but costly option: a remote stand plus an extra crew, for +$1,346. Nothing is applied until the duty manager approves.</p>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/06-escalation.jpg?v=20261031a" alt="Duty manager desk for WN407: escalated, with a safe but costly plan, the main blocker and Approve costly plan" loading="lazy" width="1920" height="1212"></figure>
+        </div>
+        <div class="demo-stage" id="sh-results">
+          <div class="stage-k">Stage 7</div>
+          <h3>Measured, not assumed</h3>
+          <p>I ran 100 live negotiations balanced across weather, late-aircraft and mixed delays. 78 reached consensus and 22 escalated, every escalation a flight where even a central solver found no safe plan. All numbers are measured inside a simulation: the flights are real, the gates, fuel, crew and slots are simulated.</p>
+          <div class="stat">
+            <span class="n"><span class="count" data-demo-count="0 100">0</span></span>
+            <span class="k">live Claude runs, 0 unsafe plans accepted</span>
+          </div>
+          <figure class="stage-shot"><img src="assets/skyhuddle-demo/07-results.jpg?v=20261031a" alt="Sky Huddle results page with the benchmark of seeded scenarios and live agent runs" loading="lazy" width="1920" height="974"></figure>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="sc-wrap pr-detail-bar pr-detail-bar--end"><button class="pr-back" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to projects</button></div>
   </section>
 
   <!-- LIVE-SYNC DETAIL: the existing 7-stage walkthrough, moved here unchanged.
@@ -532,7 +620,7 @@
 
 <script src="scrollcraft.js?v=20261018c"></script>
 <script>ScrollCraft.mount(document.body);</script>
-<script src="site.js?v=20261018c"></script>
+<script src="site.js?v=20261031a"></script>
 <script src="projects.js?v=20261018s"></script>
 </body>
 </html>

@@ -57,7 +57,7 @@
 .pr-detail-bar { display: flex; margin-bottom: 2rem; }
 .pr-detail-bar--end { margin: 3.5rem 0 0; }
 #detail-livesync .chapter { padding-block: 0; }
-#detail-livesync > #livesync > .sc-wrap { padding-block: 0; }
+#detail-livesync > #livesync > .sc-wrap, #detail-skyhuddle > #skyhuddle > .sc-wrap { padding-block: 0; }
 .pr-back {
   display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.1rem; cursor: pointer;
   border: 1.5px solid var(--fp-ink); background: #fff; color: var(--fp-ink);
@@ -189,3 +189,6 @@
 }
 .pr--free .pr-cover { height: auto; aspect-ratio: 16 / 10; }
 .pr--free .pr-body p { -webkit-line-clamp: unset; display: block; }
+
+/* Sky Huddle: its real logo sits before the name, like the CSS logos of the other projects. */
+.pl-logo { height: 1.5em; width: auto; vertical-align: middle; margin-right: .45em; }

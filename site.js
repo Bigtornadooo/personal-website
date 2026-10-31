@@ -118,10 +118,9 @@
     });
   })();
 
-  /* -------------------------------------------------------- Live-Sync demo */
-  (function initDemo() {
-    var demo = document.querySelector(".demo");
-    if (!demo) return;
+  /* -------------------------------------------- project walkthroughs (.demo) */
+  // Every walkthrough (Live-Sync, Sky Huddle, ...) gets its own progress line, stage lighting and count-up.
+  Array.prototype.forEach.call(document.querySelectorAll(".demo"), function initDemo(demo) {
     var fill = demo.querySelector(".demo-line__fill");
     var stages = Array.prototype.slice.call(demo.querySelectorAll(".demo-stage"));
 
@@ -190,5 +189,5 @@
         if (countEl) runCount(countEl);
       });
     }
-  })();
+  });
 })();
